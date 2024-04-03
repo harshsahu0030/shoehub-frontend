@@ -1,0 +1,44 @@
+.section_heading_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+
+    > h3 {
+      font-size: 1.5vmax;
+
+      > span {
+        color: $text-color-red;
+      }
+    }
+
+    > span {
+      font-size: 0.8vmax;
+      color: $text-color-dark-gray;
+    }
+  }
+
+  .right {
+    > a {
+      display: flex;
+      align-items: center;
+      gap: 0.3vmax;
+      background-color: transparent;
+      border: 1px solid $text-color-dark-gray;
+      padding: 0.5vmax 1vmax;
+      font-size: 0.8vmax;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+      color: $text-color-gray;
+      font-weight: 500;
+
+      &:hover {
+        color: $text-color-black;
+      }
+    }
+  }
+}
