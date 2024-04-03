@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import MyAccount from "./pages/MyAccount";
 import Product from "./pages/Product";
+import Products from "./pages/Products";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/my-account/:pathname" element={<MyAccount />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
       </section>

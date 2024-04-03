@@ -1,0 +1,38 @@
+.products_section01_container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  padding: 2vmax 0;
+
+  > .left {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+
+    > h3 {
+      font-size: 1.2vmax;
+    }
+
+    > h4 {
+      font-size: 1vmax;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8vmax;
+
+      > h4 {
+        font-size: 1vmax;
+      }
+    }
+  }
+
+  > .right {
+    width: 80%;
+    padding-left: 1vmax;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

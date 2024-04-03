@@ -29,6 +29,7 @@
 @import "./component-style/footer";
 @import "./component-style/login_signup";
 @import "./component-style/image_slider";
+@import "./component-style/products_section01";
 
 // ------------------------------------------------
 
@@ -112,5 +113,21 @@ hr {
       border-radius: 5px;
       font-size: 1vmax;
     }
+  }
+}
+
+.input_radio_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5vmax;
+
+  > label {
+    font-size: 1vmax;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  > input {
+    font-size: 1vmax;
   }
 }
