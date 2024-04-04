@@ -1,11 +1,11 @@
 .categories_container {
-  height: 12.5vh;
-  border-bottom: 1px solid $text-color-lighter-gray;
+  height: 100%;
+  width: 85%;
+  margin: auto;
 
   > .wrapper {
     height: 100%;
-    width: 85%;
-    margin: auto;
+    width: 100%;
     display: flex;
     align-items: center;
 
@@ -128,6 +128,7 @@
             font-size: 1vmax;
             display: flex;
             align-items: center;
+            gap: 0.5vmax;
             padding: 0 1vmax;
             border-radius: 50px;
             cursor: pointer;
@@ -179,7 +180,6 @@
             column-gap: 3vmax;
             column-rule: 1px double $bg-color-lighter-gray;
             column-fill: balance;
-            
 
             > li {
               padding: 0.5vmax 1vmax;
@@ -199,4 +199,24 @@
       }
     }
   }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .categories_container {
+    width: 95%;
+
+    > .wrapper {
+      > .left {
+        width: 25%;
+      }
+      > .right {
+        width: 75%;
+      }
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 480px) {
 }

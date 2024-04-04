@@ -20,62 +20,66 @@ const Header = () => {
   return (
     headerData && (
       <div className="header_container">
-        <div className="wrapper">
-          <div className="left">
-            <ul>
-              {headerData.headerLinks.map((item) => (
-                <li key={item.url}>
-                  <Link to={item.url}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="right">
-            <ul>
-              <li>
-                <AiOutlineSafetyCertificate />
-                {headerData.content}
+        <div className="left">
+          <ul>
+            {headerData.headerLinks.map((item) => (
+              <li key={item.url}>
+                <Link to={item.url}>{item.name}</Link>
               </li>
-              <li>
-                {headerData.contact.text}
-                <span>{headerData.contact.number}</span>
+            ))}
+          </ul>
+        </div>
+
+        <div className="center">
+          <ul>
+            <li>
+              <AiOutlineSafetyCertificate />
+              {headerData.content}
+            </li>
+            <li>
+              {headerData.contact.text}
+              <span>{headerData.contact.number}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="right">
+          <ul>
+            {
+              <li value={language.value}>
+                {language.name}
+                <IoChevronDownSharp />
+                <ul className="dropdown">
+                  {headerData.dropdownLanguage.map((item, i) => (
+                    <li
+                      key={i}
+                      onClick={() =>
+                        setLanguage({
+                          name: item.name,
+                          value: item.value,
+                        })
+                      }
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+                </ul>
               </li>
-              {
-                <li value={language.value}>
-                  {language.name}
-                  <IoChevronDownSharp />
-                  <ul className="dropdown">
-                    {headerData.dropdownLanguage.map((item, i) => (
-                      <li
-                        key={i}
-                        onClick={() =>
-                          setLanguage({
-                            name: item.name,
-                            value: item.value,
-                          })
-                        }
-                      >
-                        {item.name}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              }
-              {
-                <li>
-                  {curreny}
-                  <IoChevronDownSharp />
-                  <ul className="dropdown">
-                    {headerData.dropdownCurrency.map((item, i) => (
-                      <li key={i} onClick={() => setCurreny(item)}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              }
-            </ul>
-          </div>
+            }
+            {
+              <li>
+                {curreny}
+                <IoChevronDownSharp />
+                <ul className="dropdown">
+                  {headerData.dropdownCurrency.map((item, i) => (
+                    <li key={i} onClick={() => setCurreny(item)}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            }
+          </ul>
         </div>
       </div>
     )

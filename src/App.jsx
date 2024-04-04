@@ -17,8 +17,10 @@ const App = () => {
       <nav>
         <Navbar />
       </nav>
-      <Categories />
-      <section>
+      <section className="categories_section">
+        <Categories />
+      </section>
+      <section className="routes_section">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/my-account/:pathname" element={<MyAccount />} />
@@ -27,7 +29,7 @@ const App = () => {
         </Routes>
       </section>
       <footer>
-        <Footer />
+        {/* <Footer /> */}
       </footer>
     </BrowserRouter>
   );

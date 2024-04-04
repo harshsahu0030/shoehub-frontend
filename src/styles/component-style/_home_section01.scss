@@ -10,11 +10,18 @@
     flex-direction: column;
     gap: 3vmax;
 
-    > img {
+    > .vertical_banners {
       width: 100%;
-      object-fit: contain;
-      border-radius: 5px;
-      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 1vmax;
+
+      > img {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     }
 
     > .features {
@@ -55,33 +62,36 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 1vmax;
+      gap: 2vmax;
       padding: 1vmax 0.5vmax;
       border: 1px solid $bg-color-lighter-gray;
       border-radius: 5px;
 
       > h4 {
         font-size: 1vmax;
-      }
-
-      > a {
-        width: max-content;
-        text-wrap: nowrap;
         display: flex;
-        align-items: center;
-        gap: 0.3vmax;
-        background-color: transparent;
-        border: 1px solid $text-color-dark-gray;
-        padding: 0.3vmax 0.6vmax;
-        font-size: 0.6vmax;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 200ms ease-in-out;
-        color: $text-color-gray;
-        font-weight: 500;
+        flex-direction: column;
+        gap: 0.5vmax;
 
-        &:hover {
-          color: $text-color-black;
+        > a {
+          width: max-content;
+          text-wrap: nowrap;
+          display: flex;
+          align-items: center;
+          gap: 0.3vmax;
+          background-color: transparent;
+          border: 1px solid $text-color-dark-gray;
+          padding: 0.3vmax 0.6vmax;
+          font-size: 0.6vmax;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 200ms ease-in-out;
+          color: $text-color-gray;
+          font-weight: 500;
+
+          &:hover {
+            color: $text-color-black;
+          }
         }
       }
     }
@@ -113,6 +123,50 @@
         border-radius: 5px;
         cursor: pointer;
       }
+    }
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .home_section01_container {
+    > .left {
+      width: 25%;
+    }
+    > .right {
+      width: 75%;
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 480px) {
+  .home_section01_container {
+    flex-direction: column-reverse;
+    gap: 5vmax;
+
+    > .left {
+      width: 100%;
+
+      > .vertical_banners {
+        flex-direction: row;
+        gap: 1vmax;
+
+        > img {
+          width: 50%;
+        }
+      }
+
+      > .trending_products {
+        > h4 {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    > .right {
+      width: 100%;
     }
   }
 }

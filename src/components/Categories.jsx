@@ -5,7 +5,7 @@ import {
   IoCloseSharp,
 } from "react-icons/io5";
 import { categories } from "../data/category";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { MdNewReleases } from "react-icons/md";
 import { GiStarSwirl } from "react-icons/gi";
@@ -16,6 +16,8 @@ import { SlHandbag } from "react-icons/sl";
 import { AiOutlineHeart } from "react-icons/ai";
 
 const Categories = () => {
+  const navigate = useNavigate();
+
   //states
   const [toggleDownButtom, setToggleDownButtom] = useState();
 
@@ -117,11 +119,11 @@ const Categories = () => {
             {categories &&
               categories.map((cat, i) => (
                 <li key={i}>
-                  <span>
-                    <Link to={`/products/${cat.gender}`}>
-                      {cat.gender}
-                      <IoChevronDownSharp />
-                    </Link>
+                  <span
+                    onDoubleClick={() => navigate(`/products/${cat.gender}`)}
+                  >
+                    {cat.gender}
+                    <IoChevronDownSharp />
                   </span>
                   <ul className="dropdown">
                     {cat.types.sort().map((item, i) => (

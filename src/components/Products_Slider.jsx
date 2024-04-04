@@ -8,12 +8,28 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper/modules";
 import ProductCart from "./ProductCart";
+import { useEffect, useState } from "react";
 
 const Products_Slider = () => {
+  //state
+  const [inWidth, setInWidth] = useState(0);
+
+  console.log(inWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setInWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="products_slider_container">
       <Swiper
-        slidesPerView={4}
+        slidesPerView={inWidth && inWidth > 1024 ? 4 : inWidth > 481 ? 3 : 2}
         spaceBetween={0}
         navigation={true}
         modules={[Navigation]}

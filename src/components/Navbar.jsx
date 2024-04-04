@@ -40,6 +40,7 @@ const Navbar = () => {
     handleVisibleLocation();
   };
 
+
   return (
     <div className="navbar_container">
       <div className="wrapper">
@@ -68,25 +69,25 @@ const Navbar = () => {
                   area.
                 </p>
               </div>
-              <div className="center">
-                <RiSearch2Line />
-                <input type="search" placeholder="Search your area" />
-              </div>
 
               <div className="bottom">
                 {navbar ? (
                   <>
-                    <p onClick={() => handleLocation("Select a Location", "")}>
-                      Select your area (Clear All)
-                    </p>
-                    {Object.entries(navbar.states).map((item) => (
-                      <p
-                        key={item[0]}
-                        onClick={() => handleLocation(item[1], item[0])}
+                    <ul>
+                      <li
+                        onClick={() => handleLocation("Select a Location", "")}
                       >
-                        {item[1]}
-                      </p>
-                    ))}
+                        Select your area (Clear All)
+                      </li>
+                      {Object.entries(navbar.states).map((item) => (
+                        <li
+                          key={item[0]}
+                          onClick={() => handleLocation(item[1], item[0])}
+                        >
+                          {item[1]}
+                        </li>
+                      ))}
+                    </ul>
                   </>
                 ) : (
                   <p>No Location Found</p>

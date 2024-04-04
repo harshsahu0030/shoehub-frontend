@@ -13,8 +13,10 @@ const Home_Section01 = () => {
   "
     >
       <div className="left">
-        <img src={homeData.banner.vertical[0]} alt="banner" />
-        <img src={homeData.banner.vertical[1]} alt="banner" />
+        <div className="vertical_banners">
+          <img src={homeData.banner.vertical[0]} alt="banner" />
+          <img src={homeData.banner.vertical[1]} alt="banner" />
+        </div>
 
         <div className="features">
           {homeData.features &&
@@ -27,10 +29,13 @@ const Home_Section01 = () => {
         </div>
 
         <div className="trending_products">
-          <h4>TRENDING PRODUCTS</h4>
-          <Link to={"#"}>
-            View All <IoIosArrowRoundForward />
-          </Link>
+          <h4>
+            TRENDING PRODUCTS
+            <Link to={"#"}>
+              View All <IoIosArrowRoundForward />
+            </Link>
+          </h4>
+
           <ProductsView01 />
           <ProductsView01 />
           <ProductsView01 />
