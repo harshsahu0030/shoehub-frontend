@@ -3,7 +3,7 @@ import LoginSignup from "../components/LoginSignup";
 import { myAccount } from "../data/myAccount";
 
 const MyAccount = () => {
-  const isAuthenticated = true;
+  const isAuthenticated = false;
 
   const { pathname } = useParams();
 
@@ -26,7 +26,8 @@ const MyAccount = () => {
               </ul>
             </div>
           )}
-          {pathname === "dashboard" && (
+
+          {isAuthenticated && pathname === "dashboard" && (
             <div className="dashboard">
               <p>
                 Hello <b>harsh0030</b> (not <b>harsh0030</b>?{" "}

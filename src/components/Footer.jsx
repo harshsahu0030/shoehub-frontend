@@ -43,7 +43,7 @@ const Footer = () => {
             {categories &&
               categories.map((cat, i) => (
                 <div className="category" key={i}>
-                  <h4>{cat.gender}</h4>
+                  <h4>{cat.gender}  </h4>
                   <ul>
                     {cat.types &&
                       cat.types.map((item, i) => <li key={i}>{item}</li>)}

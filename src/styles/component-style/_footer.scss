@@ -296,6 +296,19 @@
     > .wrapper {
       width: 95%;
     }
+
+    > .wrapper {
+      width: 95%;
+
+      > .features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1vmax;
+      }
+
+      > .footer_categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 }
 

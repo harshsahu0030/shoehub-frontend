@@ -12,3 +12,21 @@
     flex-direction: column;
   }
 }
+
+//tablet ------------------
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .products_container {
+    > .wrapper {
+      width: 95%;
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 480px) {
+  .products_container {
+    > .wrapper {
+      width: 95%;
+    }
+  }
+}

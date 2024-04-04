@@ -12,9 +12,7 @@ import { useEffect, useState } from "react";
 
 const Products_Slider = () => {
   //state
-  const [inWidth, setInWidth] = useState(0);
-
-  console.log(inWidth);
+  const [inWidth, setInWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,7 +27,7 @@ const Products_Slider = () => {
   return (
     <div className="products_slider_container">
       <Swiper
-        slidesPerView={inWidth && inWidth > 1024 ? 4 : inWidth > 481 ? 3 : 2}
+        slidesPerView={inWidth && inWidth >= 1024 ? 4 : inWidth >= 481 ? 3 : 2}
         spaceBetween={0}
         navigation={true}
         modules={[Navigation]}

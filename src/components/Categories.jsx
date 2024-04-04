@@ -72,15 +72,15 @@ const Categories = () => {
             <hr />
             <li>
               <MdNewReleases />
-              Latest
+              Newly Launched
             </li>
             <li>
               <GiStarSwirl />
-              Top Rated
+              Trending
             </li>
             <li>
               <BiSolidDiscount />
-              Sale
+              Best Sellers
             </li>
             <li>
               <SiQuicklook />
