@@ -156,10 +156,15 @@
         }
 
         > ul {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          padding: 1vmax;
           list-style-type: none;
+          -moz-column-count: 2;
+          -moz-column-gap: 3vmax;
+          -webkit-column-count: 2;
+          -webkit-column-gap: 3vmax;
+          column-count: 2;
+          column-gap: 3vmax;
+          column-rule: 1px double $bg-color-lighter-gray;
+          column-fill: balance;
 
           > li {
             padding: 0.3vmax 1vmax;

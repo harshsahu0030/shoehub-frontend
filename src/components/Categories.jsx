@@ -6,9 +6,7 @@ import {
 } from "react-icons/io5";
 import { categories } from "../data/category";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { BiFemale, BiMale, BiMaleFemale } from "react-icons/bi";
-import { MdOutlineFamilyRestroom } from "react-icons/md";
+import React, { useEffect, useState } from "react";
 import { MdNewReleases } from "react-icons/md";
 import { GiStarSwirl } from "react-icons/gi";
 import { BiSolidDiscount } from "react-icons/bi";
@@ -63,22 +61,12 @@ const Categories = () => {
                   }
             }
           >
-            <li>
-              <MdOutlineFamilyRestroom />
-              All Gender
-            </li>
-            <li>
-              <BiMale />
-              Men
-            </li>
-            <li>
-              <BiFemale />
-              Women
-            </li>
-            <li>
-              <BiMaleFemale />
-              Unisex
-            </li>
+            {categories.map((cat, i) => (
+              <li key={i}>
+                {React.createElement(cat.icon)}
+                {cat.gender}
+              </li>
+            ))}
             <hr />
             <li>
               <MdNewReleases />

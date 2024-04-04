@@ -131,3 +131,23 @@ hr {
     font-size: 1vmax;
   }
 }
+
+.input_checkbox_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5vmax;
+
+  > label {
+    font-size: 1vmax;
+    text-transform: capitalize;
+    font-weight: 400;
+  }
+
+  > svg {
+    font-size: 1vmax;
+  }
+
+  > input {
+    font-size: 1vmax;
+  }
+}
