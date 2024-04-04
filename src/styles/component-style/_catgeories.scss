@@ -70,7 +70,7 @@
         align-items: center;
 
         > button {
-          font-size: 0.8vmax;
+          font-size: 1vmax;
           width: 100%;
           display: flex;
           justify-content: space-between;
@@ -96,7 +96,7 @@
             background-color: $bg-color-lighter-gray;
             color: $text-color-black;
             text-align: center;
-            font-size: 0.6vmax;
+            font-size: 1vmax;
             bottom: -10%;
             padding: 0.2vmax 0.5vmax;
             border-radius: 50px;
@@ -184,7 +184,7 @@
             > li {
               padding: 0.5vmax 1vmax;
               text-transform: capitalize;
-              font-size: 0.9vmax;
+              font-size: 1vmax;
               font-weight: 500;
               width: 100%;
               cursor: pointer;

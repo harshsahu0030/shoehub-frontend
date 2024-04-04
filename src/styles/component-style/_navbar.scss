@@ -45,12 +45,12 @@
           flex-direction: column;
 
           > span:nth-child(1) {
-            font-size: 0.7vmax;
+            font-size: 1vmax;
             color: $text-color-gray;
           }
 
           > span:nth-child(2) {
-            font-size: 0.9vmax;
+            font-size: 1vmax;
             color: $bg-color-dark-blue;
             font-weight: 700;
           }
@@ -100,7 +100,7 @@
             }
 
             > p {
-              font-size: 0.7vmax;
+              font-size: 1vmax;
             }
           }
 
@@ -116,7 +116,7 @@
               list-style-type: none;
 
               > li {
-                font-size: 0.8vmax;
+                font-size: 1vmax;
                 padding: 1vmax 1vmax;
                 cursor: pointer;
 
@@ -189,7 +189,7 @@
             position: absolute;
             height: 1vmax;
             width: 1vmax;
-            font-size: 0.7vmax;
+            font-size: 1vmax;
             display: flex;
             align-items: center;
             justify-content: center;

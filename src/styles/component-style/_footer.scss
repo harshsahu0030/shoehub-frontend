@@ -95,7 +95,6 @@
 
   > .wrapper {
     height: 100%;
-    min-height: 70vh;
     width: 85%;
     gap: 1vmax;
     margin: auto;
@@ -127,7 +126,7 @@
           height: 100%;
           display: flex;
           align-items: center;
-          font-size: 0.9vmax;
+          font-size: 1vmax;
           font-weight: 600;
         }
       }
@@ -169,7 +168,7 @@
           > li {
             padding: 0.3vmax 1vmax;
             text-transform: capitalize;
-            font-size: 0.9vmax;
+            font-size: 1vmax;
             font-weight: 500;
             width: 100%;
             cursor: pointer;
@@ -218,7 +217,7 @@
             }
 
             > span:nth-child(2) {
-              font-size: 0.8vmax;
+              font-size: 1vmax;
               color: $text-color-gray;
             }
           }
@@ -245,11 +244,13 @@
     > .end {
       display: flex;
       justify-content: space-between;
-      padding: 2vmax 0;
+      padding: 1vmax 0;
 
       > .left {
+        width: 40%;
+
         > span {
-          font-size: 0.9vmax;
+          font-size: 0.8vmax;
           color: $text-color-gray;
         }
       }
@@ -265,7 +266,7 @@
           gap: 1vmax;
 
           > li {
-            font-size: 0.9vmax;
+            font-size: 0.8vmax;
             color: $text-color-gray;
             cursor: pointer;
 
@@ -274,6 +275,71 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .footer_container {
+    width: 100%;
+    height: 100%;
+    margin-top: 7vmax;
+
+    > .subscription_box {
+      > .box {
+        width: 95%;
+      }
+    }
+
+    > .wrapper {
+      width: 95%;
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 480px) {
+  .footer_container {
+    width: 100%;
+    height: 100%;
+    margin-top: 7vmax;
+
+    > .subscription_box {
+      > .box {
+        width: 95%;
+        flex-direction: column;
+        padding: 5vmax 0 0 0;
+
+        gap: 2vmax;
+
+        .left {
+          width: 100%;
+        }
+
+        > .right {
+          width: 100%;
+
+          > img {
+            position: static;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    > .wrapper {
+      width: 95%;
+
+      > .features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1vmax;
+      }
+
+      > .footer_categories {
+        display: none;
       }
     }
   }

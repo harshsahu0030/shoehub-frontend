@@ -35,7 +35,7 @@
       gap: 0.3vmax;
 
       > .discount {
-        font-size: 0.8vmax;
+        font-size: 1vmax;
         background-color: $bg-color-blue;
         color: $text-color-white;
         font-weight: 600;
@@ -91,12 +91,12 @@
 
     > .heading {
       > h5 {
-        font-size: 0.8vmax;
+        font-size: 1vmax;
         font-weight: 500;
       }
 
       > h4 {
-        font-size: 0.9vmax;
+        font-size: 1vmax;
         font-weight: 600;
         cursor: pointer;
         transition: all 200ms ease-in-out;
@@ -108,7 +108,7 @@
     }
 
     > .stock {
-      font-size: 0.8vmax;
+      font-size: 1vmax;
       font-weight: 500;
       color: green;
     }
@@ -133,7 +133,7 @@
       }
 
       > span {
-        font-size: 0.8vmax;
+        font-size: 1vmax;
       }
     }
 
@@ -142,7 +142,7 @@
       gap: 1vmax;
 
       > span:nth-child(1) {
-        font-size: 0.9vmax;
+        font-size: 1vmax;
         color: $text-color-gray;
         text-decoration: line-through;
         font-weight: 600;
@@ -157,7 +157,7 @@
 
     > button {
       padding: 0.5vmax 0;
-      font-size: 0.8vmax;
+      font-size: 1vmax;
       background-color: transparent;
       border: 1px solid $bg-color-blue;
       color: $text-color-blue;

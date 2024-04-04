@@ -16,7 +16,7 @@
     }
 
     > span {
-      font-size: 0.8vmax;
+      font-size: 1vmax;
       color: $text-color-dark-gray;
     }
   }
@@ -29,7 +29,7 @@
       background-color: transparent;
       border: 1px solid $text-color-dark-gray;
       padding: 0.5vmax 1vmax;
-      font-size: 0.8vmax;
+      font-size: 1vmax;
       border-radius: 50px;
       cursor: pointer;
       transition: all 200ms ease-in-out;

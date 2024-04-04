@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    gap: 0.5vmax;
 
     > .heading {
       display: flex;
@@ -30,12 +31,12 @@
       gap: 0.2vmax;
 
       > h5 {
-        font-size: 0.6vmax;
+        font-size: 0.8vmax;
         font-weight: 600;
       }
 
       > h4 {
-        font-size: 0.7vmax;
+        font-size: 0.8vmax;
         font-weight: 600;
         cursor: pointer;
         transition: all 200ms ease-in-out;
@@ -52,7 +53,7 @@
       gap: 0.6vmax;
 
       > span:nth-child(1) {
-        font-size: 0.7vmax;
+        font-size: 0.9vmax;
         text-decoration: line-through;
         font-weight: 600;
         color: $text-color-gray;

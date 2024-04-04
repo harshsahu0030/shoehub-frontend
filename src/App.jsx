@@ -29,7 +29,7 @@ const App = () => {
         </Routes>
       </section>
       <footer>
-        {/* <Footer /> */}
+        <Footer />
       </footer>
     </BrowserRouter>
   );
