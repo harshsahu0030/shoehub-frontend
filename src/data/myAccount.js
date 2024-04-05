@@ -21,13 +21,4 @@ export const myAccount = {
       url: "/",
     },
   ],
-
-  address: {
-    name: "",
-    phoneNo: "",
-    street: "",
-    city: "",
-    State: "",
-    pincode: "",
-  },
 };

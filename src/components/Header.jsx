@@ -3,8 +3,10 @@ import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { IoChevronDownSharp } from "react-icons/io5";
 import { headerData } from "../data/header";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   //states
   const [language, setLanguage] = useState(
     headerData && {
@@ -23,7 +25,7 @@ const Header = () => {
         <div className="left">
           <ul>
             {headerData.headerLinks.map((item) => (
-              <li key={item.url}>
+              <li key={item.url} onClick={() => navigate(item.url)}>
                 <Link to={item.url}>{item.name}</Link>
               </li>
             ))}

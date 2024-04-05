@@ -73,7 +73,7 @@ const LoginSignup = () => {
                   value={loginForm.phoneCode}
                   onChange={handleChangeLogin}
                 >
-                  <option value={"+91"}>91</option>
+                  <option value={"+91"}>+91</option>
                   {form_data &&
                     form_data.countriesWithCode
                       .sort((a, b) =>

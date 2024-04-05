@@ -14,12 +14,11 @@ const Address = () => {
     pincode: "",
   });
 
-  console.log(address);
 
   //ref
   const addAddressRef = useRef();
-  //function
 
+  //function
   const handleVisibleAddress = (text) => {
     if (text === "visible") {
       addAddressRef.current.style.opacity = 1;
@@ -56,7 +55,7 @@ const Address = () => {
             <div className="input_select_container">
               <div>
                 <select name="phoneCode">
-                  <option value={"+91"}>91</option>
+                  <option value={"+91"}>+91</option>
                   {form_data &&
                     form_data.countriesWithCode
                       .sort((a, b) =>
