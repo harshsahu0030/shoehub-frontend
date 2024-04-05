@@ -40,7 +40,6 @@ const Navbar = () => {
     handleVisibleLocation();
   };
 
-
   return (
     <div className="navbar_container">
       <div className="wrapper">
@@ -59,8 +58,8 @@ const Navbar = () => {
             <IoChevronDownSharp />
           </div>
 
-          <div className="navbar_location_container" ref={locationRef}>
-            <div className="navbar_location_wrapper">
+          <div className="forward_box_container" ref={locationRef}>
+            <div className="wrapper">
               <div className="top">
                 <IoCloseSharp onClick={handleVisibleLocation} />
                 <h3>Choose your location</h3>
@@ -70,6 +69,7 @@ const Navbar = () => {
                 </p>
               </div>
 
+              <hr />
               <div className="bottom">
                 {navbar ? (
                   <>

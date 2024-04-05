@@ -5,7 +5,7 @@ import {
   IoCloseSharp,
 } from "react-icons/io5";
 import { categories } from "../data/category";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { MdNewReleases } from "react-icons/md";
 import { GiStarSwirl } from "react-icons/gi";
@@ -87,15 +87,15 @@ const Categories = () => {
               Recently Visited
             </li>
             <hr />
-            <li>
+            <li onClick={() => navigate("/my-account")}>
               <AiOutlineUser />
               My Account
             </li>{" "}
-            <li>
+            <li onClick={() => navigate("/cart")}>
               <SlHandbag />
-              Order Tracking
+              Cart
             </li>
-            <li>
+            <li onClick={() => navigate("/wishlist")}>
               <AiOutlineHeart />
               Wishlist
             </li>

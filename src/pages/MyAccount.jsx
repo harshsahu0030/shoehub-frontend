@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import LoginSignup from "../components/LoginSignup";
 import { myAccount } from "../data/myAccount";
+import Address from "../components/Address";
 
 const MyAccount = () => {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   const { pathname } = useParams();
 
@@ -16,40 +17,44 @@ const MyAccount = () => {
               <LoginSignup />
             </div>
           ) : (
-            <div className="account_setting">
-              <ul>
-                {myAccount.navbar.map((item, i) => (
-                  <li className={pathname === item.name && "active"} key={i}>
-                    <Link to={item.url}>{item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+            <>
+              <div className="account_setting">
+                <ul>
+                  {myAccount.navbar.map((item, i) => (
+                    <li className={pathname === item.name && "active"} key={i}>
+                      <Link to={item.url}>{item.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          {isAuthenticated && pathname === "dashboard" && (
-            <div className="dashboard">
-              <p>
-                Hello <b>harsh0030</b> (not <b>harsh0030</b>?{" "}
-                <Link to={"/"}>Log out</Link>)
-              </p>
-              <p>
-                From your account dashboard you can view your{" "}
-                <Link to={"/"}>recent orders</Link>, manage your{" "}
-                <Link to={"/my-account/address"}>
-                  shipping and billing addresses
-                </Link>
-                , and &nbsp;
-                <Link to={"/my-account/account-details"}>
-                  edit your password and account details
-                </Link>
-                .
-              </p>
-            </div>
-          )}
+              {pathname === "dashboard" && (
+                <div className="dashboard">
+                  <p>
+                    Hello <b>harsh0030</b> (not <b>harsh0030</b>?{" "}
+                    <Link to={"/"}>Log out</Link>)
+                  </p>
+                  <p>
+                    From your account dashboard you can view your{" "}
+                    <Link to={"/"}>recent orders</Link>, manage your{" "}
+                    <Link to={"/my-account/address"}>
+                      shipping and billing addresses
+                    </Link>
+                    , and &nbsp;
+                    <Link to={"/my-account/account-details"}>
+                      edit your password and account details
+                    </Link>
+                    .
+                  </p>
+                </div>
+              )}
 
-          {pathname === "account-details" && (
-            <div className="account_details"></div>
+              {pathname === "address" && <Address />}
+
+              {pathname === "account-details" && (
+                <div className="section_account_details"></div>
+              )}
+            </>
           )}
         </div>
       </div>

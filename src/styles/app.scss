@@ -28,6 +28,7 @@
 @import "./component-style/login_signup";
 @import "./component-style/image_slider";
 @import "./component-style/products_section01";
+@import "./component-style/address";
 
 // ------------------------------------------------
 
@@ -63,7 +64,7 @@ nav {
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 99999;
+  z-index: 99;
   background-color: $bg-color-white;
 }
 
@@ -139,6 +140,10 @@ hr {
   flex-direction: column;
   gap: 0.2vmax;
 
+  > label {
+    font-size: 0.9vmax;
+  }
+
   > div {
     display: flex;
     gap: 0.5vmax;
@@ -197,5 +202,79 @@ hr {
 
   > input {
     font-size: 1vmax;
+  }
+}
+
+//forward Box
+.forward_box_container {
+  z-index: 999;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+
+  > .wrapper {
+    height: max-content;
+    max-height: 70vh;
+    width: 30vmax;
+    background-color: $bg-color-white;
+    padding: 2vmax;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+
+    > .top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3vmax;
+      position: relative;
+
+      > svg {
+        position: absolute;
+        right: 1%;
+        font-size: 1.5vmax;
+        cursor: pointer;
+      }
+
+      > h3 {
+        font-size: 1vmax;
+      }
+
+      > p {
+        font-size: 0.9vmax;
+        width: 80%;
+      }
+    }
+
+    > .bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      > button {
+        width: 100%;
+        padding: 0.8vmax 0;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        background-color: $bg-color-blue;
+        color: $text-color-white;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
   }
 }

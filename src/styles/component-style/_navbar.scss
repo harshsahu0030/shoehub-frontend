@@ -57,57 +57,10 @@
         }
       }
 
-      > .navbar_location_container {
-        z-index: 999999999;
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        background-color: rgba(0, 0, 0, 0.4);
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 300ms ease-in-out;
-        visibility: hidden;
-        opacity: 0;
-
-        > .navbar_location_wrapper {
-          height: 75vh;
-          width: 30vmax;
-          background-color: $bg-color-white;
-          padding: 2vmax;
-          border-radius: 10px;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5vmax;
-
-          > .top {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3vmax;
-            position: relative;
-
-            > svg {
-              position: absolute;
-              right: 1%;
-              font-size: 1.5vmax;
-              cursor: pointer;
-            }
-
-            > h3 {
-              font-size: 1vmax;
-            }
-
-            > p {
-              font-size: 1vmax;
-            }
-          }
-
+      .forward_box_container {
+        > .wrapper {
           > .bottom {
             overflow-y: scroll;
-            display: flex;
-            flex-direction: column;
             gap: 0.5vmax;
 
             ul {
@@ -119,6 +72,7 @@
                 font-size: 1vmax;
                 padding: 1vmax 1vmax;
                 cursor: pointer;
+                width: 100%;
 
                 &:hover {
                   background-color: $bg-color-lighter-gray;

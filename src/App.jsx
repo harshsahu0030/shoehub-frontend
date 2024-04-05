@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import MyAccount from "./pages/MyAccount";
 import Product from "./pages/Product";
 import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
           <Route path="/my-account/:pathname" element={<MyAccount />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </section>
       <footer>

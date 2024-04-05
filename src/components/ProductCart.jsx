@@ -47,12 +47,10 @@ const ProductCart = () => {
             {[...Array(5)].map((_, index) => {
               index += 1;
               return (
-                <>
-                  <FaStar
-                    key={index}
-                    className={index <= rating ? "active" : "inactive"}
-                  />
-                </>
+                <FaStar
+                  key={index}
+                  className={index <= rating ? "active" : "inactive"}
+                />
               );
             })}
           </div>

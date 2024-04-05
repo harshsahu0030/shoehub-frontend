@@ -113,12 +113,10 @@ const Product = () => {
                     {[...Array(5)].map((_, index) => {
                       index += 1;
                       return (
-                        <>
-                          <FaStar
-                            key={index}
-                            className={index <= 3 ? "active" : "inactive"}
-                          />
-                        </>
+                        <FaStar
+                          key={index}
+                          className={index <= 3 ? "active" : "inactive"}
+                        />
                       );
                     })}
                   </span>
@@ -276,11 +274,8 @@ const Product = () => {
                     Add Review
                   </button>
 
-                  <div
-                    className="navbar_location_container"
-                    ref={addCommentRef}
-                  >
-                    <div className="navbar_location_wrapper">
+                  <div className="forward_box_container" ref={addCommentRef}>
+                    <div className="wrapper">
                       <div className="top">
                         <IoCloseSharp onClick={handleVisibleAddComment} />
                         <h3>Add Review</h3>
