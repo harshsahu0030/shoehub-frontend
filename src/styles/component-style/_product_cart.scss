@@ -23,7 +23,7 @@
       width: 100%;
       object-fit: contain;
       padding: 1rem;
-      height: 40vh;
+      height: 20vmax;
     }
 
     > .left {
@@ -180,7 +180,7 @@
   .product_cart_container {
     .top {
       > img {
-        height: 15vh;
+        height: 15vmax;
       }
     }
   }
@@ -191,7 +191,7 @@
   .product_cart_container {
     .top {
       > img {
-        height: 20vh;
+        height: 25vmax;
       }
     }
   }
