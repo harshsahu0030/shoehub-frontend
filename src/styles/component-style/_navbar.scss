@@ -14,7 +14,6 @@
     > .left {
       height: 100%;
       width: 20%;
-      padding: 0 0.3vmax;
       display: flex;
       align-items: center;
       gap: 2vmax;
@@ -28,7 +27,6 @@
       }
 
       > img {
-        height: 100%;
         width: 100%;
         object-fit: contain;
         cursor: pointer;
@@ -181,7 +179,7 @@
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
   .navbar_container {
     width: 95%;
 
@@ -223,7 +221,7 @@
 }
 
 //mobile ------------------
-@media (max-width: 480px) {
+@media (max-width: 800px) {
   .navbar_container {
     width: 95%;
 
@@ -243,7 +241,7 @@
       }
 
       > .right {
-        width: 25%;
+        width: 30%;
         > ul {
           > li:nth-child(2) {
             display: none;

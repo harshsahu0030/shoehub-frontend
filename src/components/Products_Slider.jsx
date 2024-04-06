@@ -10,6 +10,8 @@ import { Navigation } from "swiper/modules";
 import ProductCart from "./ProductCart";
 import { useEffect, useState } from "react";
 
+import Test01 from "../assets/nike01.png";
+
 const Products_Slider = () => {
   //state
   const [inWidth, setInWidth] = useState(window.innerWidth);
@@ -27,7 +29,7 @@ const Products_Slider = () => {
   return (
     <div className="products_slider_container">
       <Swiper
-        slidesPerView={inWidth && inWidth >= 1025 ? 4 : inWidth >= 481 ? 3 : 2}
+        slidesPerView={inWidth && inWidth > 1024 ? 4 : inWidth > 800 ? 3 : 2}
         spaceBetween={0}
         navigation={true}
         modules={[Navigation]}
@@ -37,13 +39,13 @@ const Products_Slider = () => {
           <ProductCart />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductCart />
+          <ProductCart url={Test01} />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCart />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductCart />
+          <ProductCart url={Test01} />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCart />

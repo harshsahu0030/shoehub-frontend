@@ -368,7 +368,7 @@
 }
 
 //tablet ------------------
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
   .product_container {
     > .wrapper {
       > .product_section {
@@ -380,7 +380,7 @@
 }
 
 //mobile ------------------
-@media (max-width: 480px) {
+@media (max-width: 800px) {
   .product_container {
     > .wrapper {
       > .product_section {

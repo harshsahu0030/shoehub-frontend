@@ -38,7 +38,7 @@
 }
 
 //tablet ------------------
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
   .banner_container {
     > .left {
       width: 25%;
@@ -50,7 +50,7 @@
 }
 
 //mobile ------------------
-@media (max-width: 480px) {
+@media (max-width: 800px) {
   .banner_container {
     > .left {
       width: 0;

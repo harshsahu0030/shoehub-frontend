@@ -21,9 +21,9 @@
 
     > img {
       width: 100%;
-      height: 100%;
       object-fit: contain;
       padding: 1rem;
+      height: 40vh;
     }
 
     > .left {
@@ -170,6 +170,28 @@
       &:hover {
         background-color: $bg-color-blue;
         color: $text-color-white;
+      }
+    }
+  }
+}
+
+//tablet ------------------
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .product_cart_container {
+    .top {
+      > img {
+        height: 15vh;
+      }
+    }
+  }
+}
+
+//mobile ------------------
+@media (max-width: 800px) {
+  .product_cart_container {
+    .top {
+      > img {
+        height: 20vh;
       }
     }
   }

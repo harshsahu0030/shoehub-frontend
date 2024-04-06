@@ -3,10 +3,11 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoIosExpand } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 
-import Test01 from "../assets/nike01.png";
+import Test02 from "../assets/puma02.avif";
+
 import { useEffect, useState } from "react";
 
-const ProductCart = () => {
+const ProductCart = ({ url }) => {
   //state
   const [inWishlist, setInWishlist] = useState(false);
 
@@ -23,7 +24,7 @@ const ProductCart = () => {
   return (
     <div className="product_cart_container">
       <div className="top">
-        <img src={Test01} alt="img" />
+        <img src={url ? url : Test02} alt="img" />
         <div className="left">
           <span className="discount">24%</span>
         </div>
