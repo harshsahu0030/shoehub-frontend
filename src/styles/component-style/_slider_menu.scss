@@ -10,7 +10,7 @@
   opacity: 0;
   overflow: hidden;
   transition: all 300ms ease-in-out;
-  z-index: 99999;
+  z-index: 99;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
@@ -76,7 +76,7 @@
         > .bottom {
           width: 100%;
 
-          ul {
+          > ul {
             width: 100%;
             display: flex;
             flex-direction: column;
