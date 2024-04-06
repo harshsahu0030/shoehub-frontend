@@ -264,7 +264,7 @@
         > ul {
           display: flex;
           list-style-type: none;
-          gap: 1vmax;
+          gap: 0.5vmax;
 
           > li {
             font-size: 0.8rem;
@@ -325,7 +325,6 @@
         width: 95%;
         flex-direction: column;
         padding: 5vmax 0 0 0;
-
         gap: 2vmax;
 
         .left {
@@ -353,6 +352,10 @@
       }
 
       > .footer_categories {
+        display: none;
+      }
+
+      > .end {
         display: none;
       }
     }

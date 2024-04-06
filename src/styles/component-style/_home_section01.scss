@@ -1,5 +1,5 @@
 .home_section01_container {
-  height: 100%;
+  height: max-content;
   width: 100%;
   display: flex;
   padding: 2vmax 0;
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 3vmax;
+    height: 100%;
 
     > .vertical_banners {
       width: 100%;
@@ -100,6 +101,7 @@
     display: flex;
     flex-direction: column;
     gap: 2vmax;
+    height: 100%;
 
     > .long_banner {
       height: 100%;
@@ -116,10 +118,8 @@
       width: 100%;
       gap: 1vmax;
       height: 100%;
-      background-color: red;
 
       > img {
-        height: 100%;
         width: 100%;
         object-fit: contain;
         border-radius: 5px;
