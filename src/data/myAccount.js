@@ -5,7 +5,7 @@ export const myAccount = {
       url: "/my-account/dashboard",
     },
     {
-      name: "recent orders",
+      name: "recent-orders",
       url: "/my-account/recent-orders",
     },
     {
@@ -13,12 +13,8 @@ export const myAccount = {
       url: "/my-account/address",
     },
     {
-      name: "account details",
-      url: "/my-account/account-details",
-    },
-    {
-      name: "logout",
-      url: "/",
+      name: "account",
+      url: "/my-account/account",
     },
   ],
 };

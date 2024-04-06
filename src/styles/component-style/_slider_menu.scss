@@ -1,20 +1,25 @@
 .slider_menu_container {
-  width: 100vw;
+  width: 0;
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 999999;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
 
   > .wrapper {
     height: 100%;
-    width: 30%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     background-color: $bg-color-white;
     padding: 1vmax;
+    gap: 2vmax;
 
     > .top {
       height: 8vh;
@@ -26,9 +31,34 @@
       }
     }
 
-    > h5 {
-      font-size: 1rem;
-      color: $text-color-gray;
+    > ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2vmax;
+
+      > li {
+        width: 100%;
+
+        > span {
+          font-size: 1rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          padding: 1vmax;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          > svg {
+            font-size: 1rem;
+          }
+        }
+
+        > h5 {
+          font-size: 0.8rem;
+          color: $text-color-gray;
+        }
+      }
     }
   }
 
@@ -37,12 +67,12 @@
     width: 20%;
     display: flex;
     justify-content: center;
-    color: $text-color-white;
-    padding-top: 5vmax;
 
     > svg {
-      font-size: 4rem;
+      font-size: 3rem;
       cursor: pointer;
+      color: $text-color-white;
+      margin-top: 5vmax;
     }
   }
 }

@@ -36,12 +36,13 @@ const MyAccount = () => {
                   </p>
                   <p>
                     From your account dashboard you can view your{" "}
-                    <Link to={"/"}>recent orders</Link>, manage your{" "}
+                    <Link to={"/my-account/recent-orders"}>recent orders</Link>,
+                    manage your{" "}
                     <Link to={"/my-account/address"}>
                       shipping and billing addresses
                     </Link>
                     , and &nbsp;
-                    <Link to={"/my-account/account-details"}>
+                    <Link to={"/my-account/account"}>
                       edit your password and account details
                     </Link>
                     .
@@ -51,7 +52,7 @@ const MyAccount = () => {
 
               {pathname === "address" && <Address />}
 
-              {pathname === "account-details" && (
+              {pathname === "account" && (
                 <div className="section_account_details"></div>
               )}
             </>

@@ -31,6 +31,8 @@
 @import "./component-style/address";
 @import "./component-style/wishlist_product_cart";
 @import "./component-style/slider_menu";
+@import "./component-style/location";
+@import "./component-style/search";
 
 // ------------------------------------------------
 
@@ -229,7 +231,7 @@ hr {
 
 //forward Box
 .forward_box_container {
-  z-index: 999;
+  z-index: 9999;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -252,13 +254,15 @@ hr {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 1vmax;
+    gap: 2vmax;
 
     > .top {
       display: flex;
       flex-direction: column;
       gap: 0.3vmax;
       position: relative;
+      padding-bottom: 1vmax;
+      border-bottom: 1px solid $text-color-lighter-gray;
 
       > svg {
         position: absolute;
@@ -266,8 +270,7 @@ hr {
         font-size: 1.5rem;
         cursor: pointer;
       }
-
-      > h3 {
+      f > h3 {
         font-size: 1rem;
       }
 
@@ -280,6 +283,7 @@ hr {
     > .bottom {
       width: 100%;
       display: flex;
+      padding: 0.5vmax;
       flex-direction: column;
 
       > button {
