@@ -3,8 +3,11 @@ import { footer_data } from "../data/footer";
 import React from "react";
 import { categories } from "../data/category";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     footer_data && (
       <div className="footer_container">
@@ -43,7 +46,7 @@ const Footer = () => {
             {categories &&
               categories.map((cat, i) => (
                 <div className="category" key={i}>
-                  <h4>{cat.gender}  </h4>
+                  <h4>{cat.gender} </h4>
                   <ul>
                     {cat.types &&
                       cat.types.map((item, i) => <li key={i}>{item}</li>)}
@@ -88,6 +91,16 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
+          </div>
+
+          <div className="footer_navigations">
+            <ul>
+              {footer_data.navigations.map((item, i) => (
+                <li key={i} onClick={() => navigate(`${item.url}`)}>
+                  {React.createElement(item.icon)}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

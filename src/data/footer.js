@@ -6,6 +6,10 @@ import Footer_Coupen from "../assets/footer_coupon.png";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { PiPhoneCallLight } from "react-icons/pi";
+import { IoHomeOutline } from "react-icons/io5";
+import { RiSearch2Line } from "react-icons/ri";
+import { SlHandbag } from "react-icons/sl";
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 
 export const footer_data = {
   subscribe: {
@@ -22,6 +26,7 @@ export const footer_data = {
   },
 
   working: "Working 10:00AM - 06:00PM",
+  
   copyRights:
     "Copyright 2024 © Shoehub. All rights reserved. Powered by Harsh.",
 
@@ -71,6 +76,29 @@ export const footer_data = {
     {
       name: "Cookie",
       url: "#",
+    },
+  ],
+
+  navigations: [
+    {
+      icon: IoHomeOutline,
+      url: "/",
+    },
+    {
+      icon: SlHandbag,
+      url: "/cart",
+    },
+    {
+      icon: RiSearch2Line,
+      url: "",
+    },
+    {
+      icon: AiOutlineHeart,
+      url: "/wishlist",
+    },
+    {
+      icon: AiOutlineUser,
+      url: "/my-account/dashboard",
     },
   ],
 };

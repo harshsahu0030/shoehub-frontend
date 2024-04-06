@@ -46,6 +46,11 @@
         display: flex;
         align-items: center;
         gap: 0.2vmax;
+
+        > span {
+          color: $text-color-blue;
+          font-weight: 600;
+        }
       }
     }
   }
