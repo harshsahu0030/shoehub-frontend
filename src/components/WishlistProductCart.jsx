@@ -18,7 +18,7 @@ const WishlistProductCart = () => {
       </div>
       <div className="bottom">
         <button>REMOVE FROM CART</button>
-        <button>ADD to CART</button>
+        <button>ADD TO CART</button>
       </div>
     </div>
   );

@@ -7,6 +7,8 @@ import { useRef, useState } from "react";
 import { navbar } from "../data/navbar";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { RiMenuUnfoldLine } from "react-icons/ri";
+import SliderMenu from "./SliderMenu";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -44,6 +46,10 @@ const Navbar = () => {
     <div className="navbar_container">
       <div className="wrapper">
         <div className="left">
+          <div className="slider_menu">
+            <RiMenuUnfoldLine />
+            <SliderMenu />
+          </div>
           <img src={Logo} alt="LOGO" onClick={() => navigate("/")} />
         </div>
         <div className="center">

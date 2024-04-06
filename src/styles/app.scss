@@ -30,6 +30,7 @@
 @import "./component-style/products_section01";
 @import "./component-style/address";
 @import "./component-style/wishlist_product_cart";
+@import "./component-style/slider_menu";
 
 // ------------------------------------------------
 
@@ -46,6 +47,26 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+
+// html
+
+html {
+  font-size: 16px;
+}
+
+//tablet ------------------
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+//mobile ------------------
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 //body
@@ -78,7 +99,7 @@ nav {
 //tablet ------------------
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   nav {
-    height: 6vh;
+    height: 7vh;
   }
 
   .categories_section {
@@ -119,7 +140,7 @@ hr {
   gap: 0.2vmax;
 
   > label {
-    font-size: 0.9vmax;
+    font-size: 0.9rem;
     font-weight: 600;
     color: $text-color-gray;
   }
@@ -131,7 +152,7 @@ hr {
     border: none;
     background-color: $bg-color-lighter-gray;
     border-radius: 5px;
-    font-size: 1vmax;
+    font-size: 1rem;
     resize: none;
   }
 }
@@ -142,7 +163,7 @@ hr {
   gap: 0.2vmax;
 
   > label {
-    font-size: 0.9vmax;
+    font-size: 0.9rem;
   }
 
   > div {
@@ -155,7 +176,7 @@ hr {
       padding: 1vmax;
       background-color: $bg-color-lighter-gray;
       border-radius: 5px;
-      font-size: 1vmax;
+      font-size: 1rem;
     }
 
     > input {
@@ -165,7 +186,7 @@ hr {
       padding: 1vmax;
       background-color: $bg-color-lighter-gray;
       border-radius: 5px;
-      font-size: 1vmax;
+      font-size: 1rem;
     }
   }
 }
@@ -176,13 +197,13 @@ hr {
   gap: 0.5vmax;
 
   > label {
-    font-size: 1vmax;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: capitalize;
   }
 
   > input {
-    font-size: 1vmax;
+    font-size: 1rem;
   }
 }
 
@@ -192,17 +213,17 @@ hr {
   gap: 0.5vmax;
 
   > label {
-    font-size: 1vmax;
+    font-size: 1rem;
     text-transform: capitalize;
     font-weight: 400;
   }
 
   > svg {
-    font-size: 1vmax;
+    font-size: 1rem;
   }
 
   > input {
-    font-size: 1vmax;
+    font-size: 1rem;
   }
 }
 
@@ -225,9 +246,9 @@ hr {
   > .wrapper {
     height: max-content;
     max-height: 70vh;
-    width: 30vmax;
+    max-width: 80vw;
     background-color: $bg-color-white;
-    padding: 2vmax;
+    padding: 3vmax;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -242,16 +263,16 @@ hr {
       > svg {
         position: absolute;
         right: 1%;
-        font-size: 1.5vmax;
+        font-size: 1.5rem;
         cursor: pointer;
       }
 
       > h3 {
-        font-size: 1vmax;
+        font-size: 1rem;
       }
 
       > p {
-        font-size: 0.9vmax;
+        font-size: 0.9rem;
         width: 80%;
       }
     }

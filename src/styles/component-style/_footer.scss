@@ -30,16 +30,16 @@
           gap: 0.4vmax;
 
           > h4 {
-            font-size: 1.2vmax;
+            font-size: 1.2rem;
             font-weight: 300;
           }
 
           > h3 {
-            font-size: 1.8vmax;
+            font-size: 1.8rem;
           }
         }
         > .center {
-          font-size: 0.9vmax;
+          font-size: 0.9rem;
           color: $text-color-lighter-gray;
           width: 75%;
         }
@@ -55,7 +55,7 @@
           border-radius: 5px;
 
           > svg {
-            font-size: 2vmax;
+            font-size: 2rem;
             color: $text-color-gray;
           }
 
@@ -64,7 +64,7 @@
             outline: none;
             border: none;
             width: 100%;
-            font-size: 1vmax;
+            font-size: 1rem;
           }
 
           > button {
@@ -118,7 +118,7 @@
           align-items: center;
 
           > svg {
-            font-size: 1.5vmax;
+            font-size: 1.5rem;
           }
         }
 
@@ -126,7 +126,7 @@
           height: 100%;
           display: flex;
           align-items: center;
-          font-size: 1vmax;
+          font-size: 0.9rem;
           font-weight: 600;
         }
       }
@@ -168,7 +168,7 @@
           > li {
             padding: 0.3vmax 1vmax;
             text-transform: capitalize;
-            font-size: 1vmax;
+            font-size: 0.9rem;
             font-weight: 500;
             width: 100%;
             cursor: pointer;
@@ -186,6 +186,7 @@
       display: flex;
       justify-content: space-between;
       padding: 2vmax 0;
+      gap: 2vmax;
 
       > .left {
         display: flex;
@@ -198,7 +199,7 @@
 
           > a {
             > svg {
-              font-size: 4vmax;
+              font-size: 4rem;
               padding: 1vmax;
               border-radius: 100%;
               border: 1px solid $bg-color-lighter-gray;
@@ -212,12 +213,12 @@
             gap: 0.3vmax;
 
             > span:nth-child(1) {
-              font-size: 1.2vmax;
+              font-size: 1rem;
               font-weight: 600;
             }
 
             > span:nth-child(2) {
-              font-size: 1vmax;
+              font-size: 0.8rem;
               color: $text-color-gray;
             }
           }
@@ -227,11 +228,11 @@
       > .right {
         display: flex;
         align-items: center;
-        gap: 1vmax;
+        gap: 0.5vmax;
 
         > a {
           > svg {
-            font-size: 3vmax;
+            font-size: 3rem;
             padding: 1vmax;
             border-radius: 100%;
             border: 1px solid $bg-color-lighter-gray;
@@ -250,7 +251,7 @@
         width: 40%;
 
         > span {
-          font-size: 0.8vmax;
+          font-size: 0.8rem;
           color: $text-color-gray;
         }
       }
@@ -266,7 +267,7 @@
           gap: 1vmax;
 
           > li {
-            font-size: 0.8vmax;
+            font-size: 0.8rem;
             color: $text-color-gray;
             cursor: pointer;
 

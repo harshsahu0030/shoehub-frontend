@@ -8,7 +8,6 @@
   > .left {
     height: 100%;
     display: flex;
-
     > ul {
       height: 100%;
       display: flex;
@@ -18,7 +17,7 @@
 
       > li {
         display: flex;
-        font-size: 0.8vmax;
+        font-size: 0.8rem;
         transition: all 200ms ease-in-out;
 
         &:hover {
@@ -40,7 +39,7 @@
       gap: 2vmax;
 
       > li {
-        font-size: 0.8vmax;
+        font-size: 0.8rem;
         transition: all 200ms ease-in-out;
         position: relative;
         height: 100%;
@@ -63,7 +62,7 @@
       gap: 2vmax;
 
       > li {
-        font-size: 1vmax;
+        font-size: 1rem;
         transition: all 200ms ease-in-out;
         position: relative;
         height: 100%;
@@ -101,7 +100,7 @@
           background-color: $bg-color-white;
 
           > li {
-            font-size: 1vmax;
+            font-size: 1rem;
             cursor: pointer;
 
             &:hover {

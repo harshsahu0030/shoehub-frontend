@@ -42,17 +42,17 @@
           gap: 1vmax;
 
           > h1 {
-            font-size: 1.8vmax;
+            font-size: 1.8rem;
           }
 
           > h4 {
-            font-size: 1.2vmax;
+            font-size: 1.2rem;
             font-weight: 500;
           }
 
           > div {
             display: flex;
-            font-size: 0.8vmax;
+            font-size: 0.8rem;
             gap: 0.5vmax;
 
             > span {
@@ -64,7 +64,7 @@
                 color: $text-color-gray;
 
                 > svg {
-                  font-size: 1vmax;
+                  font-size: 1rem;
                   color: $text-color-lighter-gray;
                 }
 
@@ -90,21 +90,21 @@
             gap: 1vmax;
 
             > span:nth-child(1) {
-              font-size: 1.5vmax;
+              font-size: 1.5rem;
               font-weight: 500;
               text-decoration: line-through;
               color: $text-color-gray;
             }
 
             > span:nth-child(2) {
-              font-size: 2vmax;
+              font-size: 2rem;
               font-weight: 600;
               color: $text-color-red;
             }
           }
 
           > .bottom {
-            font-size: 1vmax;
+            font-size: 1rem;
             font-weight: 600;
             color: green;
           }
@@ -119,7 +119,7 @@
           padding: 1vmax 0;
 
           > h4 {
-            font-size: 1vmax;
+            font-size: 1rem;
           }
 
           > div {
@@ -150,7 +150,7 @@
           gap: 1vmax;
 
           > h4 {
-            font-size: 1vmax;
+            font-size: 1rem;
           }
 
           > div {
@@ -161,7 +161,7 @@
             > button {
               height: 4vmax;
               width: 4vmax;
-              font-size: 1vmax;
+              font-size: 1rem;
               font-weight: 600;
               border-radius: 100%;
               border: none;
@@ -192,7 +192,7 @@
             justify-content: center;
             padding: 1vmax 0;
             width: 50%;
-            font-size: 1vmax;
+            font-size: 1rem;
             gap: 1vmax;
             border-radius: 50px;
             border: 1px solid transparent;
@@ -202,7 +202,7 @@
             text-wrap: nowrap;
 
             > svg {
-              font-size: 1vmax;
+              font-size: 1rem;
             }
 
             &:nth-child(1) {
@@ -236,7 +236,7 @@
         }
 
         > span {
-          font-size: 1.2vmax;
+          font-size: 1.2rem;
           font-weight: 700;
           color: $text-color-gray;
           cursor: pointer;
@@ -270,14 +270,14 @@
         > .description {
           width: 100%;
           height: 100%;
-          font-size: 1vmax;
+          font-size: 1rem;
           line-height: 1.5vmax;
         }
 
         > .specifications {
           width: 100%;
           height: 100%;
-          font-size: 1vmax;
+          font-size: 1rem;
 
           table {
             border-collapse: collapse;
@@ -316,14 +316,14 @@
             padding: 1vmax 0;
 
             > h4 {
-              font-size: 1vmax;
+              font-size: 1rem;
               font-weight: 600;
               text-transform: capitalize;
             }
 
             > button {
               padding: 0.5vmax 1vmax;
-              font-size: 1vmax;
+              font-size: 1rem;
               border-radius: 50px;
               border: none;
               background-color: $text-color-blue;
@@ -348,7 +348,7 @@
                     }
 
                     > svg {
-                      font-size: 2vmax;
+                      font-size: 2rem;
                       color: $text-color-gray;
                       cursor: pointer;
                       transition: all 200ms ease-in-out;

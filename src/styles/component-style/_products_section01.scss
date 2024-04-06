@@ -11,11 +11,11 @@
     gap: 1vmax;
 
     > h3 {
-      font-size: 1.2vmax;
+      font-size: 1.2rem;
     }
 
     > h4 {
-      font-size: 1vmax;
+      font-size: 1rem;
     }
 
     > div {
@@ -25,7 +25,7 @@
       position: relative;
 
       > h4 {
-        font-size: 1vmax;
+        font-size: 1rem;
       }
 
       > ul {
@@ -36,7 +36,7 @@
       }
 
       > span {
-        font-size: 1vmax;
+        font-size: 1rem;
         color: $text-color-red;
         cursor: pointer;
         font-weight: 500;
@@ -63,7 +63,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          font-size: 1vmax;
+          font-size: 1rem;
           text-transform: uppercase;
           position: sticky;
           top: 0;
@@ -71,7 +71,7 @@
           padding: 1vmax 0;
 
           svg {
-            font-size: 2vmax;
+            font-size: 2rem;
           }
         }
 

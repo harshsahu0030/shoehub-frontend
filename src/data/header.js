@@ -13,7 +13,7 @@ export const headerData = {
     },
     {
       name: "My Account",
-      url: "/my-account",
+      url: "/my-account/dashboard",
     },
     {
       name: "Wishlist",

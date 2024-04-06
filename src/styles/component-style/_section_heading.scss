@@ -8,7 +8,7 @@
     flex-direction: column;
 
     > h3 {
-      font-size: 1.5vmax;
+      font-size: 1.5rem;
 
       > span {
         color: $text-color-red;
@@ -16,7 +16,7 @@
     }
 
     > span {
-      font-size: 1vmax;
+      font-size: 1rem;
       color: $text-color-dark-gray;
     }
   }
@@ -29,7 +29,7 @@
       background-color: transparent;
       border: 1px solid $text-color-dark-gray;
       padding: 0.5vmax 1vmax;
-      font-size: 1vmax;
+      font-size: 1rem;
       border-radius: 50px;
       cursor: pointer;
       transition: all 200ms ease-in-out;

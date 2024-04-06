@@ -27,7 +27,7 @@ const Products_Slider = () => {
   return (
     <div className="products_slider_container">
       <Swiper
-        slidesPerView={inWidth && inWidth >= 1024 ? 4 : inWidth >= 481 ? 3 : 2}
+        slidesPerView={inWidth && inWidth >= 1025 ? 4 : inWidth >= 481 ? 3 : 2}
         spaceBetween={0}
         navigation={true}
         modules={[Navigation]}
