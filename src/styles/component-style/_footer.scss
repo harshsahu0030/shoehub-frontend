@@ -286,7 +286,7 @@
       bottom: 0;
       left: 0;
       background-color: $bg-color-white;
-      z-index: 999;
+      z-index: 99;
       display: none;
 
       > ul {
@@ -317,7 +317,6 @@
   .footer_container {
     width: 100%;
     height: 100%;
-    margin-top: 7vmax;
 
     > .subscription_box {
       > .box {
