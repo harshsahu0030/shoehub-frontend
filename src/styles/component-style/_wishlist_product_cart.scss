@@ -35,12 +35,12 @@
       gap: 0.2vmax;
 
       > h5 {
-        font-size: 1vmax;
+        font-size: 1rem;
         font-weight: 600;
       }
 
       > h4 {
-        font-size: 1vmax;
+        font-size: 1rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 200ms ease-in-out;
@@ -57,14 +57,14 @@
       gap: 0.6vmax;
 
       > span:nth-child(1) {
-        font-size: 0.9vmax;
+        font-size: 0.9rem;
         text-decoration: line-through;
         font-weight: 600;
         color: $text-color-gray;
       }
 
       > span:nth-child(2) {
-        font-size: 1vmax;
+        font-size: 1rem;
         font-weight: 600;
         color: $text-color-red;
       }
@@ -86,7 +86,7 @@
       color: $text-color-white;
       border: none;
       cursor: pointer;
-      font-size: 0.9vmax;
+      font-size: 0.9rem;
       font-weight: 600;
       transition: all 200ms ease-in-out;
 

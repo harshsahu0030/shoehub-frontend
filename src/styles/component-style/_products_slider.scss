@@ -1,6 +1,6 @@
 .products_slider_container {
   width: 100%;
-  height: max-content;
+  height: 100%;
   position: relative;
 
   .swiper {
@@ -41,9 +41,9 @@
     border: 1px solid $bg-color-lighter-gray;
     border-radius: 100%;
     font-weight: 600;
-    height: 2.5vmax;
-    width: 2.5vmax;
-    font-size: 1vmax;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
     position: absolute;
   }
 
