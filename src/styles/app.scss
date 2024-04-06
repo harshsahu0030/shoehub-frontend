@@ -76,13 +76,13 @@ body {
 }
 
 header {
-  height: 5vh;
+  height: 3vmax;
   width: 100%;
   border-bottom: 1px solid $text-color-lighter-gray;
 }
 
 nav {
-  height: 12.5vh;
+  height: 6vmax;
   width: 100%;
   position: sticky;
   top: 0;
@@ -91,7 +91,7 @@ nav {
 }
 
 .categories_section {
-  height: 12.5vh;
+  height: 6vmax;
   width: 100%;
   border-bottom: 1px solid $text-color-lighter-gray;
 }
@@ -99,11 +99,11 @@ nav {
 //tablet ------------------
 @media only screen and (min-width: 801px) and (max-width: 1024px) {
   nav {
-    height: 7vh;
+    height: 7vmax;
   }
 
   .categories_section {
-    height: 7vh;
+    height: 7vmax;
   }
 }
 
@@ -114,7 +114,7 @@ nav {
   }
 
   nav {
-    height: 8vh;
+    height: 10vmax;
   }
 
   .categories_section {
