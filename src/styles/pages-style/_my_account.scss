@@ -33,9 +33,9 @@
       > ul {
         height: 100%;
         width: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         align-items: center;
-        justify-content: center;
         list-style-type: none;
         flex-wrap: wrap;
         padding: 1vmax;
@@ -47,7 +47,9 @@
 
         > li {
           height: 100%;
+          width: 100%;
           display: flex;
+          justify-content: center;
           align-items: center;
           font-size: 1.2rem;
           text-transform: uppercase;
@@ -86,7 +88,7 @@
 }
 
 //tablet ------------------
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
   .myaccount_container {
     width: 100%;
     height: 100%;
@@ -100,7 +102,7 @@
 }
 
 //mobile ------------------
-@media (max-width: 480px) {
+@media (max-width: 800px) {
   .myaccount_container {
     width: 100%;
     height: 100%;
@@ -109,6 +111,17 @@
     > .wrapper {
       min-height: 70vh;
       width: 95%;
+
+      .account_setting {
+        > ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          > li {
+            justify-content: flex-start;
+          }
+        }
+      }
     }
   }
 }
