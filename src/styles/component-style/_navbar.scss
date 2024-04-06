@@ -20,6 +20,8 @@
       gap: 1vmax;
 
       > .slider_menu {
+        display: none;
+
         > svg {
           font-size: 2rem;
         }
@@ -55,12 +57,12 @@
           flex-direction: column;
 
           > span:nth-child(1) {
-            font-size: 1rem;
+            font-size: 0.6rem;
             color: $text-color-gray;
           }
 
           > span:nth-child(2) {
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: $bg-color-dark-blue;
             font-weight: 700;
           }
@@ -189,6 +191,10 @@
 
       > .left {
         width: 15%;
+
+        > .slider_menu {
+          display: none;
+        }
       }
 
       > .center {
@@ -221,6 +227,10 @@
 
       > .left {
         width: 30%;
+
+        > .slider_menu {
+          display: block;
+        }
       }
 
       > .center {
