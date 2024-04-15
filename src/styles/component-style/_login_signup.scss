@@ -41,6 +41,10 @@
       flex-direction: column;
       gap: 1vmax;
 
+      > h3 {
+        font-size: 1.2rem;
+      }
+
       > button {
         width: 100%;
         padding: 1vmax 0;
@@ -54,7 +58,7 @@
 
       > p {
         width: 100%;
-        font-size: 1rem;
+        font-size: 0.8rem;
         cursor: pointer;
         line-height: 1.3vmax;
 

@@ -10,7 +10,7 @@
 @import "./pages-style/my_account";
 @import "./pages-style/wishlist";
 @import "./pages-style/cart";
-@import "./pages-style/otpVerfication";
+@import "./pages-style/otp_verification";
 @import "./pages-style/product";
 @import "./pages-style/products";
 
@@ -33,6 +33,7 @@
 @import "./component-style/slider_menu";
 @import "./component-style/location";
 @import "./component-style/search";
+@import "./component-style/breadcrumbs";
 
 // ------------------------------------------------
 
@@ -157,6 +158,12 @@ hr {
     border-radius: 5px;
     font-size: 1rem;
     resize: none;
+  }
+
+  > span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $text-color-gray;
   }
 }
 

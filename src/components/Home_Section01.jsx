@@ -4,12 +4,18 @@ import ProductsView01 from "./ProductsView01";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { homeData } from "../data/home";
-import React from "react";
-
-
-
+import React, { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsAction } from "../app/actions/productAction";
 
 const Home_Section01 = () => {
+  //redux
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.getProducts);
+
+  useMemo(() => {
+    dispatch(getProductsAction());
+  }, [dispatch]);
   return (
     <div
       className="home_section01_container
@@ -54,7 +60,7 @@ const Home_Section01 = () => {
           description={"Do not miss the current offers until the end of April."}
           url={"#"}
         />
-        <Products_Slider />
+        <Products_Slider products={products} />
 
         <img
           className="long_banner"

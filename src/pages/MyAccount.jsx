@@ -1,15 +1,43 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import LoginSignup from "../components/LoginSignup";
 import { myAccount } from "../data/myAccount";
 import Address from "../components/Address";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUserAction } from "../app/actions/userAction";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 
 const MyAccount = () => {
-  const isAuthenticated = true;
-
   const { pathname } = useParams();
+  const navigate = useNavigate();
+
+  //redux
+  const dispatch = useDispatch();
+  const { isAuthenticated, loading, message, error } = useSelector(
+    (state) => state.user
+  );
+
+  //functions
+  const handleLogout = () => {
+    dispatch(logoutUserAction());
+  };
+
+  //useEffect
+  useEffect(() => {
+    if (message) {
+      toast.success(message);
+      dispatch({ type: CLEAR_MESSAGES });
+    }
+    if (error) {
+      toast.error(message);
+      dispatch({ type: CLEAR_ERRORS });
+    }
+  }, [message, error, dispatch, navigate]);
 
   return (
-    myAccount && (
+    myAccount &&
+    !loading && (
       <div className="myaccount_container">
         <div className="wrapper">
           {!isAuthenticated ? (
@@ -21,7 +49,10 @@ const MyAccount = () => {
               <div className="account_setting">
                 <ul>
                   {myAccount.navbar.map((item, i) => (
-                    <li className={pathname === item.name && "active"} key={i}>
+                    <li
+                      className={pathname === item.name ? "active" : ""}
+                      key={i}
+                    >
                       <Link to={item.url}>{item.name}</Link>
                     </li>
                   ))}
@@ -32,7 +63,14 @@ const MyAccount = () => {
                 <div className="dashboard">
                   <p>
                     Hello <b>harsh0030</b> (not <b>harsh0030</b>?{" "}
-                    <Link to={"/"}>Log out</Link>)
+                    <Link
+                      onClick={() => {
+                        handleLogout();
+                      }}
+                    >
+                      Log out
+                    </Link>
+                    )
                   </p>
                   <p>
                     From your account dashboard you can view your{" "}

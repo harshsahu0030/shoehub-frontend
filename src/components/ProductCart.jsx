@@ -2,16 +2,18 @@ import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoIosExpand } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
-
-import Test02 from "../assets/puma02.avif";
+import propTypes from "prop-types";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductCart = ({ url }) => {
+const ProductCart = ({ product }) => {
+  const navigate = useNavigate();
+
   //state
   const [inWishlist, setInWishlist] = useState(false);
 
-  const rating = 3;
+  console.log(product);
 
   // function
   const handleAddWishlist = () => {
@@ -24,9 +26,9 @@ const ProductCart = ({ url }) => {
   return (
     <div className="product_cart_container">
       <div className="top">
-        <img src={url ? url : Test02} alt="img" />
+        <img src={product.images[0].url} alt="img" />
         <div className="left">
-          <span className="discount">24%</span>
+          <span className="discount">{product.discount}%</span>
         </div>
         <div className="right">
           <span className="expand">
@@ -39,10 +41,18 @@ const ProductCart = ({ url }) => {
       </div>
       <div className="bottom">
         <div className="heading">
-          <h5>NIKE</h5>
-          <h4>All Natural Italian-Style Chicken Meatballs</h4>
+          <h5>{product.brand}</h5>
+          <h4
+            onClick={() => {
+              navigate(`/products/${product._id}`);
+            }}
+          >
+            {product.title.length > 40
+              ? `${product.title.slice(0, 37)}...`
+              : product.title}
+          </h4>
         </div>
-        <div className="stock">IN STOCK</div>
+
         <div className="star_rating">
           <div>
             {[...Array(5)].map((_, index) => {
@@ -50,24 +60,34 @@ const ProductCart = ({ url }) => {
               return (
                 <FaStar
                   key={index}
-                  className={index <= rating ? "active" : "inactive"}
+                  className={index <= product.ratings ? "active" : "inactive"}
                 />
               );
             })}
           </div>
 
-          <span>10</span>
+          <span>{product.numOfReviews}</span>
         </div>
 
         <div className="price">
-          <span>$29.00</span>
-          <span>$25.00</span>
+          <span>₹ {product.mrp} </span>
+          <span>₹ {product.price} </span>
         </div>
 
-        <button>Add to Card</button>
+        <button
+          onClick={() => {
+            navigate(`/products/${product._id}`);
+          }}
+        >
+          Read More
+        </button>
       </div>
     </div>
   );
+};
+
+ProductCart.propTypes = {
+  product: propTypes.object,
 };
 
 export default ProductCart;

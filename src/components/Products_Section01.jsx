@@ -152,26 +152,7 @@ const Products_Section01 = () => {
         </div>
       </div>
 
-      <div className="right">
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
-      </div>
+      <div className="right"></div>
     </div>
   );
 };

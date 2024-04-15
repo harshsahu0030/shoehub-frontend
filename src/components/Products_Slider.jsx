@@ -1,5 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import propTypes from "prop-types";
 
 // Import Swiper styles
 import "swiper/css";
@@ -10,9 +11,7 @@ import { Navigation } from "swiper/modules";
 import ProductCart from "./ProductCart";
 import { useEffect, useState } from "react";
 
-import Test01 from "../assets/nike01.png";
-
-const Products_Slider = () => {
+const Products_Slider = ({ products }) => {
   //state
   const [inWidth, setInWidth] = useState(window.innerWidth);
 
@@ -35,36 +34,19 @@ const Products_Slider = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart url={Test01} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart url={Test01} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCart />
-        </SwiperSlide>
+        {products &&
+          products.map((item) => (
+            <SwiperSlide key={item._id}>
+              <ProductCart product={item} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
+};
+
+Products_Slider.propTypes = {
+  products: propTypes.array,
 };
 
 export default Products_Slider;
