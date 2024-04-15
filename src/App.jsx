@@ -56,8 +56,15 @@ const App = () => {
             element={<OtpVerification />}
           />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<Product />} />
+
+          <Route path="/products/:gender" element={<Products />} />
+
+          <Route path="/products/:category" element={<Products />} />
+
+          <Route path="/products/:gender/:category/:id" element={<Product />} />
+
           <Route path="/cart" element={<Cart />} />
+
           <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </section>

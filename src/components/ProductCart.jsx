@@ -13,8 +13,6 @@ const ProductCart = ({ product }) => {
   //state
   const [inWishlist, setInWishlist] = useState(false);
 
-  console.log(product);
-
   // function
   const handleAddWishlist = () => {
     setInWishlist(true);
@@ -44,12 +42,12 @@ const ProductCart = ({ product }) => {
           <h5>{product.brand}</h5>
           <h4
             onClick={() => {
-              navigate(`/products/${product._id}`);
+              navigate(
+                `/products/${product.gender}/${product.category}/${product._id}`
+              );
             }}
           >
-            {product.title.length > 40
-              ? `${product.title.slice(0, 37)}...`
-              : product.title}
+            {product.title}
           </h4>
         </div>
 
@@ -76,7 +74,9 @@ const ProductCart = ({ product }) => {
 
         <button
           onClick={() => {
-            navigate(`/products/${product._id}`);
+            navigate(
+              `/products/${product.gender}/${product.category}/${product._id}`
+            );
           }}
         >
           Read More

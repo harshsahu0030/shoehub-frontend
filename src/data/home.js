@@ -1,9 +1,10 @@
-import { CiDeliveryTruck } from "react-icons/ci";
 import { GrSchedulePlay } from "react-icons/gr";
 import { BsAward } from "react-icons/bs";
 import VerticalBanner01 from "../assets/vertival_banner01.png";
 import VerticalBanner02 from "../assets/vertical_banner02.png";
+import { FiTruck } from "react-icons/fi";
 import HorizontalBanner01 from "../assets/long_vertical_banner.png";
+import { TbTruckReturn } from "react-icons/tb";
 import SmallBanner01 from "../assets/small-banner01.png";
 import SmallBanner02 from "../assets/small-banner02.png";
 import SmallBanner03 from "../assets/small-banner03.png";
@@ -26,8 +27,12 @@ export const homeData = {
       desc: "Order now so you dont miss the opportunities.",
     },
     {
-      icon: CiDeliveryTruck,
+      icon: FiTruck,
       desc: "Your order will arrive at your door within a week.",
+    },
+    {
+      icon: TbTruckReturn,
+      desc: "Every product have 2-5 days return policy.",
     },
   ],
 };

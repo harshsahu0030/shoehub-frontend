@@ -1,4 +1,10 @@
 import {
+  ADD_CART_PRODUCT_FAIL,
+  ADD_CART_PRODUCT_REQUEST,
+  ADD_CART_PRODUCT_SUCCESS,
+  ADD_WISHLIST_PRODUCT_FAIL,
+  ADD_WISHLIST_PRODUCT_REQUEST,
+  ADD_WISHLIST_PRODUCT_SUCCESS,
   CLEAR_ERRORS,
   CLEAR_MESSAGES,
   LOAD_USER_FAIL,
@@ -97,6 +103,44 @@ export const userReducer = (state = { user: {} }, action) => {
         message: null,
       };
 
+    default:
+      return state;
+  }
+};
+
+export const userCartWishlistReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADD_CART_PRODUCT_REQUEST:
+    case ADD_WISHLIST_PRODUCT_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case ADD_CART_PRODUCT_SUCCESS:
+    case ADD_WISHLIST_PRODUCT_SUCCESS:
+      return {
+        loading: false,
+        message: action.payload.message,
+      };
+
+    case ADD_CART_PRODUCT_FAIL:
+    case ADD_WISHLIST_PRODUCT_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    case CLEAR_MESSAGES:
+      return {
+        ...state,
+        message: null,
+      };
     default:
       return state;
   }

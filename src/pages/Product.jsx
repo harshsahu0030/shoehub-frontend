@@ -2,22 +2,48 @@ import { FaStar } from "react-icons/fa";
 import ImageSlider from "../components/ImageSlider";
 import { SlHandbag } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProductAction } from "../app/actions/productAction";
+import { TbStars } from "react-icons/tb";
+
+import {
+  addReviewProductAction,
+  getProductAction,
+} from "../app/actions/productAction";
 import { toast } from "react-toastify";
-import { CLEAR_ERRORS } from "../app/constants/userConstant";
+import { CLEAR_ERRORS, CLEAR_MESSAGES } from "../app/constants/userConstant";
 import { Markup } from "interweave";
 import Breadcrumbs from "../components/Breadcrumbs";
+import {
+  addCartAction,
+  addWishlistAction,
+  loadUserAction,
+} from "../app/actions/userAction";
+import { homeData } from "../data/home";
+import ReviewCart from "../components/ReviewCart";
 
 const Product = () => {
   const { id } = useParams();
+
+  console.log(id);
   const navigate = useNavigate();
   //redux
   const dispatch = useDispatch();
   const { loading, product, error } = useSelector((state) => state.getProduct);
+  const { user } = useSelector((state) => state.user);
+
+  const {
+    // loading: userCartWishlistLoading,
+    message: userCartWishlistMessage,
+    error: userCartWishlistError,
+  } = useSelector((state) => state.userCartWishlist);
+  const {
+    // loading: reviewLoading,
+    message: reviewMessage,
+    error: reviewError,
+  } = useSelector((state) => state.productReview);
 
   //state
   const [toggleButton, setToggleButton] = useState("description");
@@ -60,14 +86,25 @@ const Product = () => {
     setHover(rating);
   };
 
-  const addCommentHandler = (e) => {
+  const addCommentHandler = async (e) => {
     e.preventDefault();
-    console.log(rating, comment);
+    await dispatch(addReviewProductAction(id, rating, comment));
+    dispatch(getProductAction(id));
 
     setRating(0);
     setHover(0);
     setComment("");
     handleVisibleAddComment();
+  };
+
+  const handleWishlist = async () => {
+    await dispatch(addWishlistAction(id));
+    dispatch(loadUserAction());
+  };
+
+  const handleCart = async () => {
+    await dispatch(addCartAction(id, size));
+    dispatch(loadUserAction());
   };
 
   //useEffect
@@ -77,7 +114,33 @@ const Product = () => {
       dispatch({ type: CLEAR_ERRORS });
       navigate(-1);
     }
-  }, [dispatch, error, navigate]);
+
+    if (reviewMessage) {
+      toast.success(reviewMessage);
+      dispatch({ type: CLEAR_MESSAGES });
+    }
+    if (reviewError) {
+      toast.error(reviewError);
+      dispatch({ type: CLEAR_ERRORS });
+    }
+    if (userCartWishlistMessage) {
+      toast.success(userCartWishlistMessage);
+      dispatch({ type: CLEAR_MESSAGES });
+    }
+
+    if (userCartWishlistError) {
+      toast.error(userCartWishlistError);
+      dispatch({ type: CLEAR_ERRORS });
+    }
+  }, [
+    dispatch,
+    error,
+    navigate,
+    reviewMessage,
+    reviewError,
+    userCartWishlistMessage,
+    userCartWishlistError,
+  ]);
 
   useMemo(() => {
     dispatch(getProductAction(id));
@@ -110,20 +173,11 @@ const Product = () => {
                   </span>
                   |
                   <span>
+                    <span></span>
                     <span>
-                      {[...Array(5)].map((_, index) => {
-                        index += 1;
-                        return (
-                          <FaStar
-                            key={index}
-                            className={
-                              index <= product.ratings ? "active" : "inactive"
-                            }
-                          />
-                        );
-                      })}
+                      {product.ratings} <FaStar /> / {product.numOfReviews}
+                      Review
                     </span>
-                    <span>{product.numOfReviews} Review</span>
                   </span>{" "}
                   |
                   <span>
@@ -138,6 +192,7 @@ const Product = () => {
                 <div className="top">
                   <span>₹{product.mrp}</span>
                   <span>₹{product.price}</span>
+                  <span>{`(${product.discount}% OFF)`}</span>
                 </div>
                 <div className="bottom">inclusive of all taxes</div>
               </div>
@@ -176,19 +231,69 @@ const Product = () => {
 
               {/* buttons */}
               <div className="add_buttons">
-                <button>
-                  <SlHandbag />
-                  ADD TO BAG
+                <button onClick={handleCart}>
+                  {user &&
+                  user.cart &&
+                  user.cart.find((item) => item.product === id) ? (
+                    <>
+                      <SlHandbag />
+                      ALREADY IN CART
+                    </>
+                  ) : (
+                    <>
+                      <SlHandbag />
+                      ADD TO BAG
+                    </>
+                  )}
                 </button>
-                <button>
-                  <FaRegHeart />
-                  ADD TO WISHLIST
+                <button onClick={handleWishlist}>
+                  {user && user.wishlist && user.wishlist.includes(id) ? (
+                    <>
+                      <FaRegHeart />
+                      ALREADY IN WISHLIST
+                    </>
+                  ) : (
+                    <>
+                      <FaRegHeart />
+                      ADD TO WISHLIST
+                    </>
+                  )}
                 </button>
               </div>
             </div>
           </div>
 
           {/* product section 02 */}
+          <div className="overview_section">
+            <div className="left">
+              <h3>
+                RATINGS <TbStars />
+              </h3>
+
+              <div className="ratings_range">
+                <h5>
+                  {product.ratings} <FaStar />
+                </h5>
+                <hr />
+                <p>{product.numOfOrders} Verified Buyurs</p>
+              </div>
+            </div>
+            <div className="right">
+              <div>
+                {homeData.features &&
+                  homeData.features.map((item, i) => (
+                    <div key={i}>
+                      <span className="left">
+                        {React.createElement(item.icon)}
+                      </span>
+                      <span className="right">{item.desc}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+
+          {/* product section 03 */}
           <div className="info_section">
             <div className="top">
               <span
@@ -290,6 +395,7 @@ const Product = () => {
                               rows={5}
                               value={comment}
                               onChange={(e) => setComment(e.target.value)}
+                              required
                             />
                           </div>
                           <button type="submit">ADD COMMENT</button>
@@ -298,7 +404,11 @@ const Product = () => {
                     </div>
                   </div>
 
-                  <div className="bottom"></div>
+                  <div className="bottom">
+                    {product.reviews.slice(0, 12).map((item, index) => (
+                      <ReviewCart key={index} review={item} />
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
