@@ -6,6 +6,12 @@ import {
   ADD_WISHLIST_PRODUCT_FAIL,
   ADD_WISHLIST_PRODUCT_REQUEST,
   ADD_WISHLIST_PRODUCT_SUCCESS,
+  GET_CART_PRODUCTS_FAIL,
+  GET_CART_PRODUCTS_REQUEST,
+  GET_CART_PRODUCTS_SUCCESS,
+  GET_WISHLIST_PRODUCTS_FAIL,
+  GET_WISHLIST_PRODUCTS_REQUEST,
+  GET_WISHLIST_PRODUCTS_SUCCESS,
   LOAD_USER_FAIL,
   LOAD_USER_REQUEST,
   LOAD_USER_SUCCESS,
@@ -104,13 +110,29 @@ export const logoutUserAction = () => async (dispatch) => {
   try {
     dispatch({ type: LOGOUT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/logout`, {
-      credentials: "include",
-    });
+    const { data } = await axios.get(`/api/v1/logout`, {});
 
     dispatch({ type: LOGOUT_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
+  }
+};
+
+//----------------------------------------------------------------
+
+//get wishlist
+export const getWishlistUserAction = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_WISHLIST_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/wishlist`);
+
+    dispatch({ type: GET_WISHLIST_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_WISHLIST_PRODUCTS_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 
@@ -119,9 +141,7 @@ export const addWishlistAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: ADD_WISHLIST_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/wishlist/add/${id}`, {
-      credentials: "include",
-    });
+    const { data } = await axios.get(`/api/v1/wishlist/add/${id}`, {});
 
     dispatch({ type: ADD_WISHLIST_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
@@ -137,14 +157,29 @@ export const removeWishlistAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: REMOVE_WISHLIST_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/wishlist/remove/${id}`, {
-      credentials: "include",
-    });
+    const { data } = await axios.get(`/api/v1/wishlist/remove/${id}`, {});
 
     dispatch({ type: REMOVE_WISHLIST_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: REMOVE_WISHLIST_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+//----------------------------------------------------------------
+//get Cart
+export const getCartUserAction = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_CART_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/cart`);
+
+    dispatch({ type: GET_CART_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_CART_PRODUCTS_FAIL,
       payload: error.response.data.message,
     });
   }

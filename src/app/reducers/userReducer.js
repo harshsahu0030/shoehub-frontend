@@ -7,6 +7,12 @@ import {
   ADD_WISHLIST_PRODUCT_SUCCESS,
   CLEAR_ERRORS,
   CLEAR_MESSAGES,
+  GET_CART_PRODUCTS_FAIL,
+  GET_CART_PRODUCTS_REQUEST,
+  GET_CART_PRODUCTS_SUCCESS,
+  GET_WISHLIST_PRODUCTS_FAIL,
+  GET_WISHLIST_PRODUCTS_REQUEST,
+  GET_WISHLIST_PRODUCTS_SUCCESS,
   LOAD_USER_FAIL,
   LOAD_USER_REQUEST,
   LOAD_USER_SUCCESS,
@@ -19,6 +25,12 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  REMOVE_CART_PRODUCT_FAIL,
+  REMOVE_CART_PRODUCT_REQUEST,
+  REMOVE_CART_PRODUCT_SUCCESS,
+  REMOVE_WISHLIST_PRODUCT_FAIL,
+  REMOVE_WISHLIST_PRODUCT_REQUEST,
+  REMOVE_WISHLIST_PRODUCT_SUCCESS,
   VERIFIED_REGISTER_USER_FAIL,
   VERIFIED_REGISTER_USER_REQUEST,
   VERIFIED_REGISTER_USER_SUCCESS,
@@ -108,16 +120,90 @@ export const userReducer = (state = { user: {} }, action) => {
   }
 };
 
+export const getWishllistProductsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_WISHLIST_PRODUCTS_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case GET_WISHLIST_PRODUCTS_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload.products,
+      };
+
+    case GET_WISHLIST_PRODUCTS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    case CLEAR_MESSAGES:
+      return {
+        ...state,
+        message: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export const getCartProductsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_CART_PRODUCTS_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case GET_CART_PRODUCTS_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload.products,
+      };
+
+    case GET_CART_PRODUCTS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    case CLEAR_MESSAGES:
+      return {
+        ...state,
+        message: null,
+      };
+    default:
+      return state;
+  }
+};
+
 export const userCartWishlistReducer = (state = {}, action) => {
   switch (action.type) {
     case ADD_CART_PRODUCT_REQUEST:
     case ADD_WISHLIST_PRODUCT_REQUEST:
+    case REMOVE_CART_PRODUCT_REQUEST:
+    case REMOVE_WISHLIST_PRODUCT_REQUEST:
       return {
         loading: true,
       };
 
     case ADD_CART_PRODUCT_SUCCESS:
     case ADD_WISHLIST_PRODUCT_SUCCESS:
+    case REMOVE_CART_PRODUCT_SUCCESS:
+    case REMOVE_WISHLIST_PRODUCT_SUCCESS:
       return {
         loading: false,
         message: action.payload.message,
@@ -125,6 +211,8 @@ export const userCartWishlistReducer = (state = {}, action) => {
 
     case ADD_CART_PRODUCT_FAIL:
     case ADD_WISHLIST_PRODUCT_FAIL:
+    case REMOVE_CART_PRODUCT_FAIL:
+    case REMOVE_WISHLIST_PRODUCT_FAIL:
       return {
         loading: false,
         error: action.payload,

@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import ProductCart from "./ProductCart";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const Products_Slider = ({ products }) => {
   //state
@@ -34,12 +35,15 @@ const Products_Slider = ({ products }) => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {products &&
+        {!products ? (
+          <Loader />
+        ) : (
           products.map((item) => (
             <SwiperSlide key={item._id}>
               <ProductCart product={item} />
             </SwiperSlide>
-          ))}
+          ))
+        )}
       </Swiper>
     </div>
   );

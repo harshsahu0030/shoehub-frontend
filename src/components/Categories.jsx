@@ -10,7 +10,6 @@ import React, { useEffect, useState } from "react";
 import { MdNewReleases } from "react-icons/md";
 import { GiStarSwirl } from "react-icons/gi";
 import { BiSolidDiscount } from "react-icons/bi";
-import { SiQuicklook } from "react-icons/si";
 import { AiOutlineUser } from "react-icons/ai";
 import { SlHandbag } from "react-icons/sl";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -64,7 +63,7 @@ const Categories = () => {
             }
           >
             {categories.map((cat, i) => (
-              <li key={i}>
+              <li key={i} onClick={() => navigate(`/products/${cat.gender}`)}>
                 {React.createElement(cat.icon)}
                 {cat.gender}
               </li>
@@ -81,10 +80,6 @@ const Categories = () => {
             <li>
               <BiSolidDiscount />
               Best Sellers
-            </li>
-            <li>
-              <SiQuicklook />
-              Recently Visited
             </li>
             <hr />
             <li onClick={() => navigate("/my-account")}>
@@ -127,7 +122,14 @@ const Categories = () => {
                   </span>
                   <ul className="dropdown">
                     {cat.types.sort().map((item, i) => (
-                      <li key={i}>{item}</li>
+                      <li
+                        key={i}
+                        onClick={() =>
+                          navigate(`/products/${cat.gender}/${item}`)
+                        }
+                      >
+                        {item}
+                      </li>
                     ))}
                   </ul>
                 </li>

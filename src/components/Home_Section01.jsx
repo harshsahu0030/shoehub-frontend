@@ -6,15 +6,31 @@ import { Link } from "react-router-dom";
 import { homeData } from "../data/home";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsAction } from "../app/actions/productAction";
+import {
+  getBestSellerProductsAction,
+  getProductsAction,
+  getTopRatedProductsAction,
+  getTrendingProductsAction,
+} from "../app/actions/productAction";
+import Loader from "./Loader";
 
 const Home_Section01 = () => {
   //redux
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.getProducts);
+  const { products: trendingProducts } = useSelector(
+    (state) => state.getTrendingProducts
+  );
+  const { products: topRatedProducts } = useSelector(
+    (state) => state.getTopRatedProducts
+  );
+  const { products: bestSellerProducts } = useSelector(
+    (state) => state.getBestSellerProducts
+  );
 
   useMemo(() => {
-    dispatch(getProductsAction());
+    dispatch(getTrendingProductsAction());
+    dispatch(getTopRatedProductsAction());
+    dispatch(getBestSellerProductsAction());
   }, [dispatch]);
   return (
     <div
@@ -45,11 +61,13 @@ const Home_Section01 = () => {
             </Link>
           </h4>
 
-          <ProductsView01 />
-          <ProductsView01 />
-          <ProductsView01 />
-          <ProductsView01 />
-          <ProductsView01 />
+          {!trendingProducts ? (
+            <Loader />
+          ) : (
+            trendingProducts
+              .slice(0, 6)
+              .map((item, i) => <ProductsView01 key={i} product={item} />)
+          )}
         </div>
       </div>
 
@@ -60,7 +78,8 @@ const Home_Section01 = () => {
           description={"Do not miss the current offers until the end of April."}
           url={"#"}
         />
-        <Products_Slider products={products} />
+
+        <Products_Slider products={bestSellerProducts} />
 
         <img
           className="long_banner"
@@ -77,7 +96,7 @@ const Home_Section01 = () => {
           url={"#"}
         />
 
-        <Products_Slider />
+        <Products_Slider products={trendingProducts} />
 
         <div className="split_banners">
           <img src={homeData.banner.small[0]} alt="banner" />
@@ -85,13 +104,13 @@ const Home_Section01 = () => {
         </div>
 
         <Section_heading
-          heading={"NEW PRODUCTS"}
+          heading={"TOP RATED"}
           highlighted={""}
           description={"New products with updated stocks."}
           url={"#"}
         />
 
-        <Products_Slider />
+        <Products_Slider products={topRatedProducts} />
 
         <div className="split_banners">
           <img src={homeData.banner.small[2]} alt="banner" />

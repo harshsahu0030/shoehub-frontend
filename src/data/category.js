@@ -148,6 +148,7 @@ export const products_discount = [
 ];
 
 export const colorPallets = [
+  { name: "multicolors", color: { R: 255, G: 255, B: 255 } },
   { name: "black", color: { R: 0, G: 0, B: 0 } },
   { name: "gray", color: { R: 128, G: 128, B: 128 } },
   { name: "silver", color: { R: 192, G: 192, B: 192 } },

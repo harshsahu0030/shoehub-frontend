@@ -26,9 +26,8 @@ import ReviewCart from "../components/ReviewCart";
 
 const Product = () => {
   const { id } = useParams();
-
-  console.log(id);
   const navigate = useNavigate();
+
   //redux
   const dispatch = useDispatch();
   const { loading, product, error } = useSelector((state) => state.getProduct);
@@ -114,7 +113,6 @@ const Product = () => {
       dispatch({ type: CLEAR_ERRORS });
       navigate(-1);
     }
-
     if (reviewMessage) {
       toast.success(reviewMessage);
       dispatch({ type: CLEAR_MESSAGES });
@@ -127,7 +125,6 @@ const Product = () => {
       toast.success(userCartWishlistMessage);
       dispatch({ type: CLEAR_MESSAGES });
     }
-
     if (userCartWishlistError) {
       toast.error(userCartWishlistError);
       dispatch({ type: CLEAR_ERRORS });

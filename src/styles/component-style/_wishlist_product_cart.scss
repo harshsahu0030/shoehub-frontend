@@ -37,6 +37,7 @@
       > h5 {
         font-size: 0.8rem;
         font-weight: 600;
+        text-transform: uppercase;
       }
 
       > h4 {
@@ -44,6 +45,12 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 200ms ease-in-out;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-transform: capitalize;
 
         &:hover {
           color: $bg-color-dark-blue;
@@ -67,6 +74,12 @@
         font-size: 1rem;
         font-weight: 600;
         color: $text-color-red;
+      }
+
+      > span:nth-child(3) {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $text-color-blue;
       }
     }
   }

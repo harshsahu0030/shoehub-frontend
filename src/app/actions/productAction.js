@@ -6,30 +6,62 @@ import {
   DELETE_REVIEW_PRODUCT_FAIL,
   DELETE_REVIEW_PRODUCT_REQUEST,
   DELETE_REVIEW_PRODUCT_SUCCESS,
+  GET_BESTSELLER_PRODUCTS_FAIL,
+  GET_BESTSELLER_PRODUCTS_REQUEST,
+  GET_BESTSELLER_PRODUCTS_SUCCESS,
   GET_PRODUCTS_FAIL,
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCT_FAIL,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
+  GET_TOPRATED_PRODUCTS_FAIL,
+  GET_TOPRATED_PRODUCTS_REQUEST,
+  GET_TOPRATED_PRODUCTS_SUCCESS,
+  GET_TRENDING_PRODUCTS_FAIL,
+  GET_TRENDING_PRODUCTS_REQUEST,
+  GET_TRENDING_PRODUCTS_SUCCESS,
 } from "../constants/productConstatnt";
 
 // get products
-export const getProductsAction = () => async (dispatch) => {
-  try {
-    dispatch({ type: GET_PRODUCTS_REQUEST });
+export const getProductsAction =
+  (
+    gender = "",
+    category = "",
+    color = "",
+    price,
+    ratings,
+    discount,
+    page = 1,
+    limit = 10
+  ) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: GET_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/products`);
-    dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: GET_PRODUCTS_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+      const { data } = await axios.get(
+        `/api/v1/products?${
+          gender && gender === "all" ? "" : `gender=${gender}`
+        }${category && `&category=${category}`}${
+          color && `&color=${color}&page=${page}`
+        }${price && `&price[gte]=${price[0]}&price[lte]=${price[1]}`}${
+          ratings &&
+          `&ratings[gte]=${ratings[0]}&ratings[lte]=${ratings[1]}${
+            discount && `&discount=${discount}`
+          }&page=${page}&limit=${limit}`
+        }`
+      );
 
-// get products
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: GET_PRODUCTS_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
+
+// get product
 export const getProductAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: GET_PRODUCT_REQUEST });
@@ -40,6 +72,54 @@ export const getProductAction = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GET_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// get trending products
+export const getTrendingProductsAction = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_TRENDING_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/products?sort=createdAt,-1`);
+
+    dispatch({ type: GET_TRENDING_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_TRENDING_PRODUCTS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// get top rated products
+export const getTopRatedProductsAction = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_TOPRATED_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/products?sort=ratings,-1`);
+
+    dispatch({ type: GET_TOPRATED_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_TOPRATED_PRODUCTS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// get best seller products
+export const getBestSellerProductsAction = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_BESTSELLER_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/products?sort=numOfOrders,-1`);
+
+    dispatch({ type: GET_BESTSELLER_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_BESTSELLER_PRODUCTS_FAIL,
       payload: error.response.data.message,
     });
   }

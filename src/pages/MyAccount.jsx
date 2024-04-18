@@ -19,8 +19,9 @@ const MyAccount = () => {
   );
 
   //functions
-  const handleLogout = () => {
-    dispatch(logoutUserAction());
+  const handleLogout = async () => {
+    await dispatch(logoutUserAction());
+    navigate("/");
   };
 
   //useEffect

@@ -1,9 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userCartWishlistReducer, userReducer } from "./reducers/userReducer";
+import {
+  getCartProductsReducer,
+  getWishllistProductsReducer,
+  userCartWishlistReducer,
+  userReducer,
+} from "./reducers/userReducer";
 import {
   addDeleteReviewReducer,
+  getBestSellerProductsReducer,
   getProductReducer,
   getProductsReducer,
+  getTendingProductsReducer,
+  getTopRatedProductsReducer,
 } from "./reducers/productReducer";
 
 export const store = configureStore({
@@ -11,7 +19,12 @@ export const store = configureStore({
     user: userReducer,
     getProducts: getProductsReducer,
     getProduct: getProductReducer,
+    getBestSellerProducts: getBestSellerProductsReducer,
+    getTopRatedProducts: getTopRatedProductsReducer,
+    getTrendingProducts: getTendingProductsReducer,
     productReview: addDeleteReviewReducer,
     userCartWishlist: userCartWishlistReducer,
+    getWishlistProducts: getWishllistProductsReducer,
+    getCartProducts: getCartProductsReducer,
   },
 });
