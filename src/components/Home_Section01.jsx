@@ -2,19 +2,19 @@ import Section_heading from "./Section_heading";
 import Products_Slider from "./Products_Slider";
 import ProductsView01 from "./ProductsView01";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { homeData } from "../data/home";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getBestSellerProductsAction,
-  getProductsAction,
   getTopRatedProductsAction,
   getTrendingProductsAction,
 } from "../app/actions/productAction";
 import Loader from "./Loader";
 
 const Home_Section01 = () => {
+  const navigate = useNavigate();
   //redux
   const dispatch = useDispatch();
   const { products: trendingProducts } = useSelector(
@@ -39,8 +39,15 @@ const Home_Section01 = () => {
     >
       <div className="left">
         <div className="vertical_banners">
-          <img src={homeData.banner.vertical[0]} alt="banner" />
-          <img src={homeData.banner.vertical[1]} alt="banner" />
+          {homeData.banner.vertical &&
+            homeData.banner.vertical.map((item, i) => (
+              <img
+                key={i}
+                src={item.img}
+                alt="banner"
+                onClick={() => navigate(item.url, { state: item.state })}
+              />
+            ))}
         </div>
 
         <div className="features">

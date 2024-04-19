@@ -14,6 +14,9 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
+  GET_SEARCH_PRODUCTS_FAIL,
+  GET_SEARCH_PRODUCTS_REQUEST,
+  GET_SEARCH_PRODUCTS_SUCCESS,
   GET_TOPRATED_PRODUCTS_FAIL,
   GET_TOPRATED_PRODUCTS_REQUEST,
   GET_TOPRATED_PRODUCTS_SUCCESS,
@@ -40,6 +43,42 @@ export const getProductsReducer = (state = {}, action) => {
       };
 
     case GET_PRODUCTS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    case CLEAR_MESSAGES:
+      return {
+        ...state,
+        message: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export const getSearchProductsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_SEARCH_PRODUCTS_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case GET_SEARCH_PRODUCTS_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload.products,
+        filteredProductsCount: action.payload.filteredProductsCount,
+      };
+
+    case GET_SEARCH_PRODUCTS_FAIL:
       return {
         loading: false,
         error: action.payload,

@@ -15,6 +15,9 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
+  GET_SEARCH_PRODUCTS_FAIL,
+  GET_SEARCH_PRODUCTS_REQUEST,
+  GET_SEARCH_PRODUCTS_SUCCESS,
   GET_TOPRATED_PRODUCTS_FAIL,
   GET_TOPRATED_PRODUCTS_REQUEST,
   GET_TOPRATED_PRODUCTS_SUCCESS,
@@ -28,6 +31,7 @@ export const getProductsAction =
   (
     gender = "",
     category = "",
+    brand,
     color = "",
     price,
     ratings,
@@ -42,7 +46,7 @@ export const getProductsAction =
       const { data } = await axios.get(
         `/api/v1/products?${
           gender && gender === "all" ? "" : `gender=${gender}`
-        }${category && `&category=${category}`}${
+        }${category && `&category=${category}`}${brand && `&brand=${brand}`}${
           color && `&color=${color}&page=${page}`
         }${price && `&price[gte]=${price[0]}&price[lte]=${price[1]}`}${
           ratings &&
@@ -60,6 +64,24 @@ export const getProductsAction =
       });
     }
   };
+
+// getsearch products
+export const getSearchProductsAction = (search) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_SEARCH_PRODUCTS_REQUEST });
+
+    const { data } = await axios.get(
+      `/api/v1/products?${search && `keyword=${search}`}`
+    );
+
+    dispatch({ type: GET_SEARCH_PRODUCTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_SEARCH_PRODUCTS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 // get product
 export const getProductAction = (id) => async (dispatch) => {

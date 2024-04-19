@@ -12,7 +12,24 @@ import SmallBanner04 from "../assets/small-banner04.png";
 
 export const homeData = {
   banner: {
-    vertical: [VerticalBanner01, VerticalBanner02],
+    vertical: [
+      {
+        img: VerticalBanner01,
+        url: "/products/men/sneakers",
+        state: {
+          discount: 60,
+          brand: "nike",
+        },
+      },
+      {
+        img: VerticalBanner02,
+        url: "/products/men/running shoes",
+        state: {
+          discount: 60,
+          brand: "adidas",
+        },
+      },
+    ],
     horizontal: [HorizontalBanner01],
     small: [SmallBanner01, SmallBanner02, SmallBanner03, SmallBanner04],
   },

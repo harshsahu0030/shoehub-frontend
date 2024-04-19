@@ -10,6 +10,7 @@ import {
   getBestSellerProductsReducer,
   getProductReducer,
   getProductsReducer,
+  getSearchProductsReducer,
   getTendingProductsReducer,
   getTopRatedProductsReducer,
 } from "./reducers/productReducer";
@@ -18,6 +19,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     getProducts: getProductsReducer,
+    getSearchProducts: getSearchProductsReducer,
     getProduct: getProductReducer,
     getBestSellerProducts: getBestSellerProductsReducer,
     getTopRatedProducts: getTopRatedProductsReducer,

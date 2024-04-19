@@ -24,6 +24,7 @@ const Products_Section01 = () => {
   //states
   const [gender, setGender] = useState("all");
   const [category, setCategory] = useState([]);
+  const [brand, setBrand] = useState([]);
   const [color, setColor] = useState([]);
   const [discount, setDiscount] = useState(0);
   const [colorSlice, setColorSlice] = useState(false);
@@ -77,6 +78,16 @@ const Products_Section01 = () => {
     }
   };
 
+  const handleCheckBrand = (bnd) => {
+    let newArr = [...brand];
+    if (brand.includes(bnd)) {
+      newArr.splice(newArr.indexOf(bnd), 1);
+      setBrand(newArr);
+    } else {
+      setBrand((prev) => [...prev, bnd]);
+    }
+  };
+
   const handleCheckColor = (cat) => {
     if (color.includes(cat)) {
       let newArr = [...color];
@@ -106,6 +117,7 @@ const Products_Section01 = () => {
       getProductsAction(
         gender,
         category.join(","),
+        brand.join(","),
         color.join(","),
         price,
         ratings,
@@ -118,6 +130,7 @@ const Products_Section01 = () => {
     dispatch,
     gender,
     category,
+    brand,
     color,
     price,
     ratings,
@@ -209,6 +222,29 @@ const Products_Section01 = () => {
                 ))}
             </ul>
           </div>
+        </div>
+
+        <hr />
+
+        <div>
+          <h4>BRAND</h4>
+          <ul>
+            {[...new Set(products && products.map((o) => o.brand))].map(
+              (item, i) => (
+                <li key={i}>
+                  <div className="input_checkbox_container">
+                    <input
+                      type="checkbox"
+                      value={item}
+                      checked={brand.includes(item)}
+                      onChange={() => handleCheckBrand(item)}
+                    />
+                    <label htmlFor="">{item}</label>
+                  </div>
+                </li>
+              )
+            )}
+          </ul>
         </div>
 
         <hr />
