@@ -44,7 +44,7 @@ export const getProductsAction =
       dispatch({ type: GET_PRODUCTS_REQUEST });
 
       const { data } = await axios.get(
-        `/api/v1/products?${
+        `https://shoehub-backend.onrender.com/api/v1/products?${
           gender && gender === "all" ? "" : `gender=${gender}`
         }${category && `&category=${category}`}${brand && `&brand=${brand}`}${
           color && `&color=${color}&page=${page}`
@@ -71,7 +71,9 @@ export const getSearchProductsAction = (search) => async (dispatch) => {
     dispatch({ type: GET_SEARCH_PRODUCTS_REQUEST });
 
     const { data } = await axios.get(
-      `/api/v1/products?${search && `keyword=${search}`}`
+      `https://shoehub-backend.onrender.com/api/v1/products?${
+        search && `keyword=${search}`
+      }`
     );
 
     dispatch({ type: GET_SEARCH_PRODUCTS_SUCCESS, payload: data });
@@ -88,7 +90,9 @@ export const getProductAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: GET_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/product/${id}`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/product/${id}`
+    );
 
     dispatch({ type: GET_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
@@ -104,7 +108,9 @@ export const getTrendingProductsAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_TRENDING_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/products?sort=createdAt,-1`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/products?sort=createdAt,-1`
+    );
 
     dispatch({ type: GET_TRENDING_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
@@ -120,7 +126,9 @@ export const getTopRatedProductsAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_TOPRATED_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/products?sort=ratings,-1`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/products?sort=ratings,-1`
+    );
 
     dispatch({ type: GET_TOPRATED_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
@@ -136,7 +144,9 @@ export const getBestSellerProductsAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_BESTSELLER_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/products?sort=numOfOrders,-1`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/products?sort=numOfOrders,-1`
+    );
 
     dispatch({ type: GET_BESTSELLER_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
@@ -157,7 +167,7 @@ export const addReviewProductAction =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `/api/v1/product/review/${id}`,
+        `https://shoehub-backend.onrender.com/api/v1/product/review/${id}`,
         {
           rating,
           comment,
@@ -179,7 +189,9 @@ export const deleteReviewProductAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_REVIEW_PRODUCT_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/product/review/${id}`);
+    const { data } = await axios.delete(
+      `https://shoehub-backend.onrender.com/api/v1/product/review/${id}`
+    );
 
     dispatch({ type: DELETE_REVIEW_PRODUCT_SUCCESS, payload: data });
   } catch (error) {

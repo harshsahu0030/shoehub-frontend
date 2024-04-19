@@ -42,7 +42,11 @@ export const registerUserAction = (signupForm) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/v1/register`, signupForm, config);
+    const { data } = await axios.post(
+      `https://shoehub-backend.onrender.com/api/v1/register`,
+      signupForm,
+      config
+    );
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
   } catch (error) {
@@ -59,10 +63,15 @@ export const verifiedRegisterUserAction =
     try {
       dispatch({ type: VERIFIED_REGISTER_USER_REQUEST });
 
-      const config = { headers: { "Content-Type": "application/json" } };
+      const config = {
+        headers: { "Content-Type": "application/json" },
+        mode: "cors",
+        credentials: "include",
+        withCredentials: true,
+      };
 
       const { data } = await axios.post(
-        `/api/v1/register/${id}`,
+        `https://shoehub-backend.onrender.com/api/v1/register/${id}`,
         {
           otp: otpNumber,
         },
@@ -82,9 +91,23 @@ export const loginUserAction = (loginForm) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      method: "POST",
+      withCredentials: true,
+      crossorigin: true,
+      "Access-Control-Allow-Origin": "*",
+    };
 
-    const { data } = await axios.post(`/api/v1/login`, loginForm, config);
+    const { data } = await axios.post(
+      `https://shoehub-backend.onrender.com/api/v1/login`,
+      loginForm,
+      config
+    );
     axios;
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
@@ -97,7 +120,17 @@ export const loadUserAction = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/load`);
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      credentials: "include",
+      withCredentials: true,
+    };
+
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/load`,
+      config
+    );
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
@@ -110,7 +143,10 @@ export const logoutUserAction = () => async (dispatch) => {
   try {
     dispatch({ type: LOGOUT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/logout`, {});
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/logout`,
+      {}
+    );
 
     dispatch({ type: LOGOUT_SUCCESS, payload: data });
   } catch (error) {
@@ -125,7 +161,9 @@ export const getWishlistUserAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_WISHLIST_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/wishlist`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/wishlist`
+    );
 
     dispatch({ type: GET_WISHLIST_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
@@ -141,7 +179,10 @@ export const addWishlistAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: ADD_WISHLIST_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/wishlist/add/${id}`, {});
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/wishlist/add/${id}`,
+      {}
+    );
 
     dispatch({ type: ADD_WISHLIST_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
@@ -157,7 +198,10 @@ export const removeWishlistAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: REMOVE_WISHLIST_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/wishlist/remove/${id}`, {});
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/wishlist/remove/${id}`,
+      {}
+    );
 
     dispatch({ type: REMOVE_WISHLIST_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
@@ -174,7 +218,9 @@ export const getCartUserAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_CART_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/cart`);
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/cart`
+    );
 
     dispatch({ type: GET_CART_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
@@ -192,10 +238,13 @@ export const addCartAction =
     try {
       dispatch({ type: ADD_CART_PRODUCT_REQUEST });
 
-      const { data } = await axios.post(`/api/v1/cart/add/${id}`, {
-        size,
-        quantity,
-      });
+      const { data } = await axios.post(
+        `https://shoehub-backend.onrender.com/api/v1/cart/add/${id}`,
+        {
+          size,
+          quantity,
+        }
+      );
 
       dispatch({ type: ADD_CART_PRODUCT_SUCCESS, payload: data });
     } catch (error) {
@@ -211,7 +260,10 @@ export const removeCartAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: REMOVE_CART_PRODUCT_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/cart/remove/${id}`, {});
+    const { data } = await axios.get(
+      `https://shoehub-backend.onrender.com/api/v1/cart/remove/${id}`,
+      {}
+    );
 
     dispatch({ type: REMOVE_CART_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
