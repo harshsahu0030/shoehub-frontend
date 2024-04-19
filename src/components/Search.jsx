@@ -39,14 +39,16 @@ const Search = () => {
 
   return (
     <div className="search_container" onMouseLeave={handlehiddenDropdown}>
-      <input
-        type="search"
-        placeholder="Search for products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        onFocus={handleShowDropdown}
-      />
-      <RiSearch2Line />
+      <div className="search_box">
+        <input
+          type="search"
+          placeholder="Search for products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onMouseEnter={handleShowDropdown}
+        />
+        <RiSearch2Line />
+      </div>
 
       <div className="drop_down" ref={dropDownRef}>
         <ul>

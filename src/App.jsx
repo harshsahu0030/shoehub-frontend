@@ -15,6 +15,7 @@ import { loadUserAction } from "./app/actions/userAction";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import OtpVerification from "./pages/OtpVerification";
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   //redux
@@ -50,7 +51,10 @@ const App = () => {
       <section className="routes_section">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchPage />} />
+
           <Route path="/my-account/:pathname" element={<MyAccount />} />
+
           <Route
             path="/register-verification/:id"
             element={<OtpVerification />}

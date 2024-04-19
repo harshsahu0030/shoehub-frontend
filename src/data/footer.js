@@ -26,7 +26,7 @@ export const footer_data = {
   },
 
   working: "Working 10:00AM - 06:00PM",
-  
+
   copyRights:
     "Copyright 2024 © Shoehub. All rights reserved. Powered by Harsh.",
 
@@ -90,7 +90,7 @@ export const footer_data = {
     },
     {
       icon: RiSearch2Line,
-      url: "",
+      url: "/search",
     },
     {
       icon: AiOutlineHeart,
