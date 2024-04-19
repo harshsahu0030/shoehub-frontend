@@ -62,11 +62,10 @@ export const verifiedRegisterUserAction =
   (id, otpNumber) => async (dispatch) => {
     try {
       dispatch({ type: VERIFIED_REGISTER_USER_REQUEST });
-
       const config = {
         headers: { "Content-Type": "application/json" },
         mode: "cors",
-        credentials: "include",
+        crossorigin: true,
         withCredentials: true,
       };
 
@@ -92,15 +91,10 @@ export const loginUserAction = (loginForm) => async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
 
     const config = {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      method: "POST",
-      withCredentials: true,
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
       crossorigin: true,
-      "Access-Control-Allow-Origin": "*",
+      withCredentials: true,
     };
 
     const { data } = await axios.post(
