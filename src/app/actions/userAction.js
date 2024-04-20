@@ -71,6 +71,7 @@ export const verifiedRegisterUserAction =
         },
         withCredentials: true,
         crossorigin: true,
+        credentials: "include",
         "Access-Control-Allow-Origin": "*",
       };
 
@@ -103,14 +104,16 @@ export const loginUserAction = (loginForm) => async (dispatch) => {
       },
       withCredentials: true,
       crossorigin: true,
+      credentials: "include",
       "Access-Control-Allow-Origin": "*",
     };
+
     const { data } = await axios.post(
       `https://shoehub-backend.onrender.com/api/v1/login`,
       loginForm,
       config
     );
-    axios;
+
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -123,14 +126,7 @@ export const loadUserAction = () => async (dispatch) => {
     dispatch({ type: LOAD_USER_REQUEST });
 
     const config = {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
       withCredentials: true,
-      crossorigin: true,
-      "Access-Control-Allow-Origin": "*",
     };
 
     const { data } = await axios.get(
