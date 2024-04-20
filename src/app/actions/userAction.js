@@ -62,11 +62,16 @@ export const verifiedRegisterUserAction =
   (id, otpNumber) => async (dispatch) => {
     try {
       dispatch({ type: VERIFIED_REGISTER_USER_REQUEST });
+
       const config = {
-        headers: { "Content-Type": "application/json" },
-        mode: "cors",
-        crossorigin: true,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
         withCredentials: true,
+        crossorigin: true,
+        "Access-Control-Allow-Origin": "*",
       };
 
       const { data } = await axios.post(
@@ -91,12 +96,15 @@ export const loginUserAction = (loginForm) => async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
 
     const config = {
-      headers: { "Content-Type": "application/json" },
-      mode: "cors",
-      crossorigin: true,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       withCredentials: true,
+      crossorigin: true,
+      "Access-Control-Allow-Origin": "*",
     };
-
     const { data } = await axios.post(
       `https://shoehub-backend.onrender.com/api/v1/login`,
       loginForm,
@@ -115,10 +123,14 @@ export const loadUserAction = () => async (dispatch) => {
     dispatch({ type: LOAD_USER_REQUEST });
 
     const config = {
-      headers: { "Content-Type": "application/json" },
-      mode: "cors",
-      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       withCredentials: true,
+      crossorigin: true,
+      "Access-Control-Allow-Origin": "*",
     };
 
     const { data } = await axios.get(
